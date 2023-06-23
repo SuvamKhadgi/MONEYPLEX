@@ -60,7 +60,6 @@ public class CreateAccountview extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -74,7 +73,6 @@ public class CreateAccountview extends javax.swing.JFrame {
         txtemail = new javax.swing.JTextField();
         txtphoneno = new javax.swing.JTextField();
         txtprofession = new javax.swing.JTextField();
-        txtid = new javax.swing.JTextField();
         txtdate = new javax.swing.JTextField();
         txtnationality = new javax.swing.JComboBox<>();
         txtdeposite = new javax.swing.JTextField();
@@ -247,13 +245,9 @@ public class CreateAccountview extends javax.swing.JFrame {
         jLabel13.setText("DEPOSIT AMOUNT");
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, -1, -1));
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel16.setText("ID NO:-");
-        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
-
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel18.setText("DATE");
-        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, -1, -1));
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 90, -1));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel15.setText("INTREST PERCENT");
@@ -299,8 +293,7 @@ public class CreateAccountview extends javax.swing.JFrame {
         });
         jPanel2.add(txtphoneno, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 160, -1));
         jPanel2.add(txtprofession, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 160, -1));
-        jPanel2.add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 160, -1));
-        jPanel2.add(txtdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 330, 130, -1));
+        jPanel2.add(txtdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 160, -1));
 
         txtnationality.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NEPAL", "INDIA", "CHINA", "BHUTAN", "PAKISTAN", "SRILANKA", "BANGLADESH", "AFGANISTAN", "USA", "AUSTRALIA", " " }));
         jPanel2.add(txtnationality, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, 160, -1));
@@ -419,7 +412,7 @@ public void addacc(ActionListener log)
   public CreateAccountmodel getMymodel()
     {
         model=new CreateAccountmodel(txtfirstname.getText(),txtmidname.getText(),txtlastname.getText(),
-       txtaddress.getText(),((txtnationality.getSelectedItem()).toString()),txtprofession.getText(),txtemail.getText(),type_acc,txtdob.getText(),int_for,int_per,(Integer.parseInt(txtdate.getText())),(Integer.parseInt(txtphoneno.getText())),(Integer.parseInt(txtcitizenshipno.getText())),(Integer.parseInt(txtdeposite.getText())));
+       txtaddress.getText(),((txtnationality.getSelectedItem()).toString()),txtprofession.getText(),txtemail.getText(),type_acc,txtdob.getText(),int_for,int_per,txtdate.getText(),(Integer.parseInt(txtphoneno.getText())),(Integer.parseInt(txtcitizenshipno.getText())),(Integer.parseInt(txtdeposite.getText())));
         return model;
     }
      public void showMessage(String msg)
@@ -585,7 +578,6 @@ this.setVisible(false);
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
@@ -616,7 +608,6 @@ this.setVisible(false);
     private javax.swing.JTextField txtdob;
     private javax.swing.JTextField txtemail;
     private javax.swing.JTextField txtfirstname;
-    private javax.swing.JTextField txtid;
     private javax.swing.JTextField txtlastname;
     private javax.swing.JTextField txtmidname;
     private javax.swing.JComboBox<String> txtnationality;

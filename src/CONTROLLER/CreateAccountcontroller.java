@@ -66,7 +66,7 @@ public boolean checkMyData(CreateAccountmodel mymodel) {
         pst.setString(11, mymodel.getTyp_acc());
         pst.setString(12, mymodel.getInt_for());
         pst.setString(13, mymodel.getInt_per());
-        pst.setInt(14, mymodel.getDate());
+        pst.setString(14, mymodel.getDate());
         pst.setInt(15, mymodel.getDeposit_amt());
         pst.executeUpdate();
         System.out.println("Data inserted");
