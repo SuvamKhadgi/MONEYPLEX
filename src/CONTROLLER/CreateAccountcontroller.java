@@ -25,8 +25,6 @@ class RegisterListener
         if(checkMyData(mymodel))
         {
         view.showMessage("Registered Successfully");
-//        view.resetme();
-                //view.addacc(this);
         }
         else
         {
@@ -48,10 +46,6 @@ public boolean checkMyData(CreateAccountmodel mymodel) {
         conn = DataConnection.dbconnect();
        
        String sql = "INSERT INTO info(fname, mname, lname, address,dob,citizenship,nationality, email,phone, profession,typeaccount,intfor, intpercent,crt_date,deposit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-
-
-//       String sql = "INSERT INTO info(fname, mname, lname, address,dob,citizenship,nationality, email,phone, profession,typeaccount,intfor, intpercent,crt_date,deposit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         pst = conn.prepareStatement(sql);
         pst.setString(1, mymodel.getFname());
         pst.setString(2, mymodel.getMname());

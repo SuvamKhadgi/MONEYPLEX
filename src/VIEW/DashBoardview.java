@@ -74,7 +74,12 @@ public class DashBoardview extends javax.swing.JFrame {
 
         btnintrest.setBackground(new java.awt.Color(42, 144, 174));
         btnintrest.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        btnintrest.setText("INTREST");
+        btnintrest.setText("INTEREST");
+        btnintrest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnintrestActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnintrest, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 130, 150, 50));
 
         btnloan.setBackground(new java.awt.Color(42, 144, 174));
@@ -109,6 +114,13 @@ this.setVisible(false);
 
        ca.setVisible(true);
     }//GEN-LAST:event_btncustomermgActionPerformed
+
+    private void btnintrestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnintrestActionPerformed
+       this.setVisible(false);
+        Interestview ca= new Interestview();
+
+       ca.setVisible(true); 
+    }//GEN-LAST:event_btnintrestActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

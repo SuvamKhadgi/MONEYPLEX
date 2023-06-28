@@ -2,6 +2,7 @@ package VIEW;
 import MODEL.*;
 import CONTROLLER.*;
 import MODEL.CreateAccountmodel;
+import java.awt.event.ActionEvent;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
@@ -13,18 +14,33 @@ public class CreateAccountview extends javax.swing.JFrame {
      CreateAccountmodel model;
     public CreateAccountview() {
         initComponents();
-//        setExtendedState(NORMAL);
-        
         ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Moneyplex Bank.png")));
         Image img1 = myimage.getImage();
         Image img2 = img1.getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon i = new ImageIcon(img2);
         jLabel1.setIcon(i);
-        
         LocalDate today = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String formattedDate = today.format(formatter);
         txtdate.setText(formattedDate);
+    }
+public void actionPerformed(ActionEvent evt) {
+        if (evt.getSource() == rb_fixacc) {
+            enableInterestRateRadioButtons();
+        } else if (evt.getSource() == rb_crtacc) {
+            disableInterestRateRadioButtons();
+        }
+    }
+private void enableInterestRateRadioButtons() {
+        rb_5int.setEnabled(true);
+        rb_10int.setEnabled(true);
+        rb_13int.setEnabled(true);
+    }
+
+private void disableInterestRateRadioButtons() {
+        rb_5int.setEnabled(false);
+        rb_10int.setEnabled(false);
+        rb_13int.setEnabled(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -135,8 +151,13 @@ public class CreateAccountview extends javax.swing.JFrame {
 
         btnintrest.setBackground(new java.awt.Color(42, 144, 174));
         btnintrest.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        btnintrest.setText("INTREST");
+        btnintrest.setText("INTEREST");
         btnintrest.setBorderPainted(false);
+        btnintrest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnintrestActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnintrest, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 130, 150, 50));
 
         btnloan.setBackground(new java.awt.Color(42, 144, 174));
@@ -520,6 +541,13 @@ this.setVisible(false);
 
        ca.setVisible(true);         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void btnintrestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnintrestActionPerformed
+  this.setVisible(false);
+        Interestview ca= new Interestview();
+
+       ca.setVisible(true);         // TODO add your handling code here:
+    }//GEN-LAST:event_btnintrestActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

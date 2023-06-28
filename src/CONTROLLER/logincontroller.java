@@ -30,7 +30,7 @@ class LoginList
         mymodel=myview.getMymodel();
         if(checkMyData(mymodel))
         {
-            DashBoard s=new DashBoard();
+            DashBoardview s=new DashBoardview();
             s.setVisible(true);
         }
         else
