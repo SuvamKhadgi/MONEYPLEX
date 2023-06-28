@@ -37,7 +37,7 @@ private Interestcontroller controller;
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
+        btnupdate = new javax.swing.JButton();
         txtac_no = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -51,15 +51,15 @@ private Interestcontroller controller;
         txttimep = new javax.swing.JTextField();
         txtac_phone = new javax.swing.JTextField();
         txttyp_ac = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        txttol_balance = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txtcrtdate = new javax.swing.JTextField();
         txtintrate = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
+        txtint_acc = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         btnsearch = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        btncalculate = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -173,9 +173,9 @@ private Interestcontroller controller;
         jPanel2.setBackground(new java.awt.Color(0, 204, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton5.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        jButton5.setText("UPDATE");
-        jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 100, 30));
+        btnupdate.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        btnupdate.setText("UPDATE");
+        jPanel2.add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 100, 30));
 
         txtac_no.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -210,7 +210,7 @@ private Interestcontroller controller;
 
         jLabel10.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabel10.setText("TOTAL BALANCE");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 150, 30));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 150, 30));
 
         txtac_name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -223,12 +223,12 @@ private Interestcontroller controller;
         jPanel2.add(txtac_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 160, 30));
         jPanel2.add(txttyp_ac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 160, 30));
 
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        txttol_balance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                txttol_balanceActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 160, 30));
+        jPanel2.add(txttol_balance, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 160, 30));
 
         jLabel11.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabel11.setText("TIME PERIOD");
@@ -242,20 +242,20 @@ private Interestcontroller controller;
         });
         jPanel2.add(txtintrate, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 160, 30));
 
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
+        txtint_acc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField12ActionPerformed(evt);
+                txtint_accActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 160, 30));
+        jPanel2.add(txtint_acc, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 230, 160, 30));
 
         jLabel14.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabel14.setText("CREATED DATE");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 150, 30));
 
         jLabel15.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        jLabel15.setText("INTEREST ACCURED");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, 30));
+        jLabel15.setText("INTEREST ACCRUED");
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 170, 30));
 
         btnsearch.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         btnsearch.setText("SEARCH");
@@ -266,9 +266,14 @@ private Interestcontroller controller;
         });
         jPanel2.add(btnsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 100, 30));
 
-        jButton8.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        jButton8.setText("CACULATE");
-        jPanel2.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 370, 120, 30));
+        btncalculate.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        btncalculate.setText("CACULATE");
+        btncalculate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncalculateActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btncalculate, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 380, 120, 30));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 860, 460));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 640));
@@ -309,9 +314,9 @@ private Interestcontroller controller;
         // TODO add your handling code here:
     }//GEN-LAST:event_txtac_noActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void txttol_balanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttol_balanceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_txttol_balanceActionPerformed
 
     private void txtac_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtac_nameActionPerformed
         // TODO add your handling code here:
@@ -321,15 +326,19 @@ private Interestcontroller controller;
         // TODO add your handling code here:
     }//GEN-LAST:event_txtintrateActionPerformed
 
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+    private void txtint_accActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtint_accActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
+    }//GEN-LAST:event_txtint_accActionPerformed
 
     private void btnsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearchActionPerformed
          String accountNumber = txtac_no.getText();
                 Interestmodel account = controller.searchAccount(accountNumber);
                 displayAccount(account);
     }//GEN-LAST:event_btnsearchActionPerformed
+
+    private void btncalculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalculateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btncalculateActionPerformed
 
      private void displayAccount(Interestmodel account) {
         txtac_name.setText(account.getAc_name());
@@ -350,6 +359,7 @@ private Interestcontroller controller;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btncalculate;
     private javax.swing.JButton btncustomermg;
     private javax.swing.ButtonGroup btngrpint_for;
     private javax.swing.ButtonGroup btngrptyp_acc;
@@ -360,13 +370,12 @@ private Interestcontroller controller;
     private javax.swing.JButton btnsearch;
     private javax.swing.JButton btntransachistory;
     private javax.swing.JButton btntransaction;
+    private javax.swing.JButton btnupdate;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -382,15 +391,15 @@ private Interestcontroller controller;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField txtac_name;
     private javax.swing.JTextField txtac_no;
     private javax.swing.JTextField txtac_phone;
     private javax.swing.JTextField txtbalance;
     private javax.swing.JTextField txtcrtdate;
+    private javax.swing.JTextField txtint_acc;
     private javax.swing.JTextField txtintrate;
     private javax.swing.JTextField txttimep;
+    private javax.swing.JTextField txttol_balance;
     private javax.swing.JTextField txttyp_ac;
     // End of variables declaration//GEN-END:variables
 

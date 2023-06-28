@@ -491,27 +491,27 @@ public void addacc(ActionListener log)
     }//GEN-LAST:event_rb_savaccActionPerformed
 
     private void rb_3mActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_3mActionPerformed
-        int_for="3 months";        // TODO add your handling code here:
+        int_for="3";        // TODO add your handling code here:
     }//GEN-LAST:event_rb_3mActionPerformed
 
     private void tb_6mActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tb_6mActionPerformed
-        int_for="6 months";   // TODO add your handling code here:
+        int_for="6";   // TODO add your handling code here:
     }//GEN-LAST:event_tb_6mActionPerformed
 
     private void rb_1yearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_1yearActionPerformed
-        int_for="1 year";         // TODO add your handling code here:
+        int_for="1";         // TODO add your handling code here:
     }//GEN-LAST:event_rb_1yearActionPerformed
 
     private void rb_5intActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_5intActionPerformed
-        int_per="5 %";        // TODO add your handling code here:
+        int_per="5";        // TODO add your handling code here:
     }//GEN-LAST:event_rb_5intActionPerformed
 
     private void rb_10intActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_10intActionPerformed
-        int_per="10 %";        // TODO add your handling code here:
+        int_per="10";        // TODO add your handling code here:
     }//GEN-LAST:event_rb_10intActionPerformed
 
     private void rb_13intActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_13intActionPerformed
-        int_per="13 %";        // TODO add your handling code here:
+        int_per="13";        // TODO add your handling code here:
     }//GEN-LAST:event_rb_13intActionPerformed
 
     private void btncreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncreateActionPerformed
