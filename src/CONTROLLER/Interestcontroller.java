@@ -1,36 +1,4 @@
 package CONTROLLER;
-
-//
-//import MODEL.DataConnection;
-//import MODEL.Interestmodel;
-//import VIEW.Interestview;
-//import java.sql.Connection;
-//import java.sql.DriverManager;
-//import java.sql.PreparedStatement;
-//import java.sql.ResultSet;
-//import java.sql.Statement;
-//
-//public class Interestcontroller {
-//ResultSet rs;
-//PreparedStatement pst;
-//Connection con;
-//Interestview myview;
-//Interestmodel mymodel;
-//Statement stmt;
-//String no1;
-//public Interestcontroller(Interestview myView)
-//{
-//    this.myview=myView;
-//    
-////    new logincontroller.LoginList().actionPerformed();
-//}
-//public Interestcontroller(String Accno){
-//    no1= Accno;
-//}
-//public boolean checkMyData(Interestmodel mymodel) throws Exception
-//{ 
-//}
-
 import MODEL.Interestmodel;
 import java.sql.Connection;
 import java.sql.DriverManager;
