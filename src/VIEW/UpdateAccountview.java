@@ -429,6 +429,8 @@ try (Connection connection = DriverManager.getConnection(url, username, password
             int rowsAffected = statement.executeUpdate();
             if (rowsAffected > 0) {
                 System.out.println("Account updated successfully");
+                JOptionPane.showMessageDialog(null,"Account updated successfully",
+                    "INFORMATION",JOptionPane.INFORMATION_MESSAGE);
             } else {
                 System.out.println("Failed to update account");
             }
@@ -456,7 +458,7 @@ this.setVisible(false);
     private void displayAccount(UpdateAccountmodel account) {
         txtfirstname.setText(account.getFname());
         txtmidname.setText(account.getMname());
-        txtlastname.setText(account.getDeposit_amt());
+        txtlastname.setText(account.getLname());
         txtaddress.setText(account.getAddress());
         txtdob.setText(account.getDob());
         txtcitizenshipno.setText(account.getCitizen_no());

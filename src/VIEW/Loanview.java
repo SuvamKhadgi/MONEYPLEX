@@ -131,6 +131,7 @@ String Account;
         btnreport.setText("MORE...");
         getContentPane().add(btnreport, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 130, 150, 50));
 
+        jPanel2.setBackground(new java.awt.Color(153, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -140,6 +141,7 @@ String Account;
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 1080, 80));
 
+        jPanel3.setBackground(new java.awt.Color(153, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -187,6 +189,7 @@ String Account;
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 570, 290));
 
+        jPanel4.setBackground(new java.awt.Color(153, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -225,16 +228,17 @@ String Account;
 
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 410, 500, 150));
 
+        jPanel6.setBackground(new java.awt.Color(153, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnloancalculator.setText("Loan Calculator");
+        btnloancalculator.setText("CALCULATE LOAN");
         btnloancalculator.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnloancalculatorActionPerformed(evt);
             }
         });
-        jPanel6.add(btnloancalculator, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
+        jPanel6.add(btnloancalculator, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 20, 130, 30));
 
         btnreset.setText("Reset");
         btnreset.addActionListener(new java.awt.event.ActionListener() {
@@ -242,20 +246,18 @@ String Account;
                 btnresetActionPerformed(evt);
             }
         });
-        jPanel6.add(btnreset, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, -1, -1));
+        jPanel6.add(btnreset, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 20, 100, 30));
 
-        btnexit.setText("Exit");
+        btnexit.setText("LOG OUT");
         btnexit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnexitActionPerformed(evt);
             }
         });
-        jPanel6.add(btnexit, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, -1, -1));
+        jPanel6.add(btnexit, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 90, 30));
 
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 1080, 70));
-
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -240, 1090, 1060));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 640));
 
         pack();
         setLocationRelativeTo(null);

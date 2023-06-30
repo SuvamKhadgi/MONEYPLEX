@@ -3,7 +3,13 @@ import CONTROLLER.Interestcontroller;
 import MODEL.Interestmodel;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 public class Interestview extends javax.swing.JFrame {
 private Interestcontroller controller;
     public Interestview() {
@@ -60,6 +66,7 @@ private Interestcontroller controller;
         jLabel15 = new javax.swing.JLabel();
         btnsearch = new javax.swing.JButton();
         btncalculate = new javax.swing.JButton();
+        timePeriodComboBox = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -185,6 +192,11 @@ private Interestcontroller controller;
 
         btnupdate.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         btnupdate.setText("UPDATE");
+        btnupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnupdateActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 100, 30));
 
         txtac_no.addActionListener(new java.awt.event.ActionListener() {
@@ -229,7 +241,7 @@ private Interestcontroller controller;
         });
         jPanel2.add(txtac_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 160, 30));
         jPanel2.add(txtbalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 160, 30));
-        jPanel2.add(txttimep, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 160, 30));
+        jPanel2.add(txttimep, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, 160, 30));
         jPanel2.add(txtac_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 160, 30));
         jPanel2.add(txttyp_ac, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 160, 30));
 
@@ -284,6 +296,9 @@ private Interestcontroller controller;
             }
         });
         jPanel2.add(btncalculate, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 380, 120, 30));
+
+        timePeriodComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 months", "6 months", "1year" }));
+        jPanel2.add(timePeriodComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 160, 30));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 860, 460));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 640));
@@ -347,9 +362,32 @@ private Interestcontroller controller;
     }//GEN-LAST:event_btnsearchActionPerformed
 
     private void btncalculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalculateActionPerformed
-        // TODO add your handling code here:
+        calculateInterest();
     }//GEN-LAST:event_btncalculateActionPerformed
+ private void calculateInterest() {
+        double principal = Double.parseDouble(txtbalance.getText());
+        double rate = Double.parseDouble(txtintrate.getText());
+        double time = getTimePeriodInYears();
 
+        double interest = (principal * rate * time) / 100;
+        double totalAmount = principal + interest;
+
+        txtint_acc.setText(String.format("%.2f", interest));
+        txttol_balance.setText(String.format("%.2f", totalAmount));
+    }
+
+    private double getTimePeriodInYears() {
+        String timePeriod = (String) timePeriodComboBox.getSelectedItem();
+        if (timePeriod.equals("3 months")) {
+            return 0.25; // 3 months = 0.25 years
+        } else if (timePeriod.equals("6 months")) {
+            return 0.5; // 6 months = 0.5 years
+        } else if (timePeriod.equals("1 year")) {
+            return 1.0; // 1 year = 1.0 years
+        } else {
+            return 0.0; // Invalid time period, return 0
+        }
+    }
     private void btntransachistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntransachistoryActionPerformed
 this.setVisible(false);
         Statementview ca= new Statementview();
@@ -361,6 +399,35 @@ this.setVisible(false);
         Loanview ca= new Loanview();
         ca.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_btnloanActionPerformed
+
+    private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
+String accountNumber = txtac_no.getText();
+String url = "jdbc:mysql://localhost:3306/crt_account";
+        String username = "root";
+        String password = "khadgi986";
+try (Connection connection = DriverManager.getConnection(url, username, password)){
+    String idQuery = "SELECT id FROM info WHERE id= ?";
+    PreparedStatement idStatement = connection.prepareStatement(idQuery);
+    idStatement.setString(1, accountNumber);
+    ResultSet idResultSet = idStatement.executeQuery();
+    if (idResultSet.next()) {
+        int id = idResultSet.getInt("id");
+            String query = "UPDATE info SET deposit = ? WHERE id = ?";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setString(1, txttol_balance.getText());
+             statement.setString(2, txtac_no.getText());
+            int rowsAffected = statement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Account updated successfully");
+                JOptionPane.showMessageDialog(null,"Account updated successfully",
+                    "INFORMATION",JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                System.out.println("Failed to update account");
+            }
+        }} catch (SQLException e) {
+            e.printStackTrace();
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_btnupdateActionPerformed
 
      private void displayAccount(Interestmodel account) {
         txtac_name.setText(account.getAc_name());
@@ -413,6 +480,7 @@ this.setVisible(false);
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JComboBox<String> timePeriodComboBox;
     private javax.swing.JTextField txtac_name;
     private javax.swing.JTextField txtac_no;
     private javax.swing.JTextField txtac_phone;
