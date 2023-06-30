@@ -515,23 +515,7 @@ public void addacc(ActionListener log)
     }//GEN-LAST:event_rb_13intActionPerformed
 
     private void btncreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncreateActionPerformed
-//        Connection conn= DataConnection.dbconnect();
-//        try
-//        {
-//            Statement stmt =conn.createStatement();
-//            String sql ="insert into info values('"+txtid.getText()+"','"+txtfirstname.getText()+"','"+txtmidname.getText()+"','"+txtlastname.getText()+"','"+txtaddress.getText()+"','"+txtdob.getText()+"',"
-//            + "'"+txtcitizenshipno.getText()+"','"+txtnationality.getSelectedItem().toString()+"','"+txtemail.getText()+"','"+txtphoneno.getText()+"','"+txtprofession.getText()+"'"
-//            + ",'"+type_acc+"','"+int_for+"','"+int_per+"','"+txtdate.getText()+"','"+txtdeposite.getText()+"')";
-//            stmt.executeUpdate(sql);
-//            System.out.println("data inserted");
-//            JOptionPane.showMessageDialog(this,"succefully inserted", "teacher", JOptionPane.INFORMATION_MESSAGE);
-//
-//        }
-//        catch(Exception e)
-//        {
-//            System.out.println(e.getMessage());
-//
-//        }
+
 CreateAccountcontroller cac= new CreateAccountcontroller(this);
     }//GEN-LAST:event_btncreateActionPerformed
 
