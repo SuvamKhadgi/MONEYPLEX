@@ -1,14 +1,12 @@
 package VIEW;
-
+import MODEL.DataConnection;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
-
+import java.sql.*;
 public class Statementview extends javax.swing.JFrame {
-
     public Statementview() {
         initComponents();
-        setExtendedState(NORMAL);
         ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Moneyplex Bank.png")));
         Image img1 = myimage.getImage();
         Image img2 = img1.getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH);
@@ -31,7 +29,7 @@ public class Statementview extends javax.swing.JFrame {
         txtmybill = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtaccno = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -90,6 +88,11 @@ public class Statementview extends javax.swing.JFrame {
         btnloan.setBackground(new java.awt.Color(42, 144, 174));
         btnloan.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         btnloan.setText("LOAN");
+        btnloan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnloanActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnloan, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 130, 150, 50));
 
         btnreport.setBackground(new java.awt.Color(42, 144, 174));
@@ -101,7 +104,7 @@ public class Statementview extends javax.swing.JFrame {
         txtmybill.setRows(5);
         jScrollPane1.setViewportView(txtmybill);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 1080, 360));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 1080, 360));
 
         jButton1.setText("PRINT ME");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -114,7 +117,7 @@ public class Statementview extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         jLabel2.setText("ACCOUNT NO");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, -1, 30));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, 130, 30));
+        getContentPane().add(txtaccno, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, 130, 30));
 
         jButton2.setText("SEARCH");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -136,7 +139,9 @@ public class Statementview extends javax.swing.JFrame {
     }//GEN-LAST:event_btntransactionActionPerformed
 
     private void btnhomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhomeActionPerformed
-
+        this.setVisible(false);
+        DashBoardview ca= new DashBoardview();
+        ca.setVisible(true);
     }//GEN-LAST:event_btnhomeActionPerformed
 
     private void btncustomermgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncustomermgActionPerformed
@@ -154,14 +159,52 @@ public class Statementview extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        try{
            txtmybill.print();
-       }catch(Exception e){
-           
+       }catch(Exception e){     
        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        txtmybill.setText("\tMONEYPLEX BANK"+"\n"+"\tDILLIBAZAR,KATHMANDU"+"\n"+ "\tPHONE NO: 9841000000" +"\n"+ "*******************************************************-+");
+    Connection conn = DataConnection.dbconnect();
+    String s = txtaccno.getText();
+    
+    try {
+        PreparedStatement pst = conn.prepareStatement("SELECT * FROM info WHERE id=?");
+        pst.setString(1, s);
+
+        ResultSet rs = pst.executeQuery();
+        if (rs.next()) {
+//            txtcustomerN.setText(rs.getString(2));
+//            txtavailableA.setText(rs.getString(16));
+    
+        txtmybill.setText("""
+                          \t\t  MONEYPLEX BANK
+                          \t\tDILLIBAZAR,KATHMANDU
+                          \t\tPHONE NO: 9841000000
+                          *************************************************************************************************
+                          \t\tBANK STATEMENT
+                          *************************************************************************************************
+                          ACCOUNT INFORMATION:
+                          ACCOUNT NUMBER:
+                          ACCOUNT HOLDER
+                          ACCOUNT TYPE
+                          STARTED DATE
+                          *************************************************************************************************
+                          \t\tTRANSACTIONS
+                          
+                          **************************************************************************************************
+                          TOTAL BALANCE:""");
+//        txtmybill.setText(txtmybill.getText()+)
+            }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnloanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloanActionPerformed
+this.setVisible(false);
+        Loanview ca= new Loanview();
+        ca.setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnloanActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -184,7 +227,7 @@ public class Statementview extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtaccno;
     private javax.swing.JTextArea txtmybill;
     // End of variables declaration//GEN-END:variables
 }

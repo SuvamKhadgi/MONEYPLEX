@@ -125,6 +125,11 @@ public class UpdateAccountview extends javax.swing.JFrame {
         btntransachistory.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         btntransachistory.setText("STATEMENT");
         btntransachistory.setBorderPainted(false);
+        btntransachistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntransachistoryActionPerformed(evt);
+            }
+        });
         getContentPane().add(btntransachistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, 150, 50));
 
         btnintrest.setBackground(new java.awt.Color(42, 144, 174));
@@ -142,6 +147,11 @@ public class UpdateAccountview extends javax.swing.JFrame {
         btnloan.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         btnloan.setText("LOAN");
         btnloan.setBorderPainted(false);
+        btnloan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnloanActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnloan, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 130, 150, 50));
 
         btnreport.setBackground(new java.awt.Color(42, 144, 174));
@@ -433,6 +443,17 @@ try (Connection connection = DriverManager.getConnection(url, username, password
         UpdateAccountmodel account = controller.searchAccount(accountNumber);
         displayAccount(account);
     }//GEN-LAST:event_btnsearchActionPerformed
+
+    private void btntransachistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntransachistoryActionPerformed
+        this.setVisible(false);
+        Statementview ca= new Statementview();
+        ca.setVisible(true);    }//GEN-LAST:event_btntransachistoryActionPerformed
+
+    private void btnloanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloanActionPerformed
+this.setVisible(false);
+        Loanview ca= new Loanview();
+        ca.setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnloanActionPerformed
     private void displayAccount(UpdateAccountmodel account) {
         txtfirstname.setText(account.getFname());
         txtmidname.setText(account.getMname());
