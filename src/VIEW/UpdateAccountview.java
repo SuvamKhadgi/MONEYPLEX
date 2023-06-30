@@ -27,7 +27,6 @@ public class UpdateAccountview extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
         btngrptyp_acc = new javax.swing.ButtonGroup();
         btngrpint_for = new javax.swing.ButtonGroup();
         buttonGroup1 = new javax.swing.ButtonGroup();
@@ -81,7 +80,6 @@ public class UpdateAccountview extends javax.swing.JFrame {
         btnupdate = new javax.swing.JButton();
         btnsearch = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MONEYPLEX");
         setResizable(false);
@@ -388,6 +386,7 @@ public class UpdateAccountview extends javax.swing.JFrame {
     }//GEN-LAST:event_txtphonenoActionPerformed
 
     private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
+         //this done in view only but mvc left
 String accountNumber = txtac_no.getText();
 String url = "jdbc:mysql://localhost:3306/crt_account";
         String username = "root";
