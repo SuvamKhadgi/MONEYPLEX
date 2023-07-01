@@ -1,7 +1,10 @@
 package VIEW;
+import CONTROLLER.Withdrawcontroller;
+import MODEL.Withdrawmodel;
 import MODEL.DataConnection;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import java.sql.*;
 import java.time.LocalDate;
@@ -11,6 +14,7 @@ public class Withdrawview extends javax.swing.JFrame {
 ResultSet rs;
 PreparedStatement pst;
 Connection con;
+Withdrawmodel model;
     public Withdrawview() {
         initComponents();
         setExtendedState(NORMAL);
@@ -24,7 +28,19 @@ Connection con;
         String formattedDate = today.format(formatter);
         txtdate.setText(formattedDate);
     }
-
+ public void addacc(ActionListener log)
+    {
+        btnwithdraw.addActionListener(log);
+    }
+    public Withdrawmodel getMymodel()
+    {
+        model=new Withdrawmodel(txtAccN.getText(),txtcustomerN.getText(),txtavailableA.getText(),txtwithdrawA.getText(),txtdate.getText(),txttotalbal.getText());
+        return model;
+    }
+     public void showMessage(String msg)
+    {
+        JOptionPane.showMessageDialog(this,msg);
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -63,7 +79,7 @@ Connection con;
         btncancel = new javax.swing.JButton();
         lblavailableA = new javax.swing.JLabel();
         txtavailableA = new javax.swing.JTextField();
-        txtphoneN1 = new javax.swing.JTextField();
+        txttotalbal = new javax.swing.JTextField();
         lblphoneN1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -256,7 +272,7 @@ Connection con;
                 txtphoneNActionPerformed(evt);
             }
         });
-        jPanel2.add(txtphoneN, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 250, 200, 30));
+        jPanel2.add(txtphoneN, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 200, 30));
 
         checkcorrect.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         checkcorrect.setText("I CONFIRM THE ABOVE INFORMATION IS CORRECT.");
@@ -282,6 +298,11 @@ Connection con;
         btncancel.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         btncancel.setForeground(new java.awt.Color(255, 0, 0));
         btncancel.setText("CANCEL");
+        btncancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncancelActionPerformed(evt);
+            }
+        });
         jPanel2.add(btncancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, 130, 40));
 
         lblavailableA.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
@@ -289,12 +310,12 @@ Connection con;
         jPanel2.add(lblavailableA, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 160, 30));
         jPanel2.add(txtavailableA, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 200, 30));
 
-        txtphoneN1.addActionListener(new java.awt.event.ActionListener() {
+        txttotalbal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtphoneN1ActionPerformed(evt);
+                txttotalbalActionPerformed(evt);
             }
         });
-        jPanel2.add(txtphoneN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 200, 30));
+        jPanel2.add(txttotalbal, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 250, 200, 30));
 
         lblphoneN1.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         lblphoneN1.setText("PHONE NO");
@@ -366,10 +387,47 @@ Connection con;
     }//GEN-LAST:event_txtphoneNActionPerformed
 
     private void btnwithdrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnwithdrawActionPerformed
-    JOptionPane.showMessageDialog(this," withdrawn succefully", "message", JOptionPane.INFORMATION_MESSAGE);
-    resetme();
-    }//GEN-LAST:event_btnwithdrawActionPerformed
+        double availableAmount = Double.parseDouble(txtavailableA.getText());
+        double withdrawAmount = Double.parseDouble(txtwithdrawA.getText());
+        if (availableAmount < withdrawAmount) {
+            JOptionPane.showMessageDialog(null, "Insufficient funds!");
+            return;
+        }
+        double newAmount = availableAmount - withdrawAmount;
+        txttotalbal.setText(String.valueOf(newAmount));
+        //////////////////////////////////////////////////////////////////////////////////////
+        String accountNumber = txtAccN.getText();
+        String url = "jdbc:mysql://localhost:3306/crt_account";
+        String username = "root";
+        String password = "khadgi986";
+        try (Connection connection = DriverManager.getConnection(url, username, password)){
+        String idQuery = "SELECT id FROM info WHERE id= ?";
+        PreparedStatement idStatement = connection.prepareStatement(idQuery);
+        idStatement.setString(1, accountNumber);
+        ResultSet idResultSet = idStatement.executeQuery();
+        if (idResultSet.next()) {
+            int id = idResultSet.getInt("id");
+            String query = "UPDATE info SET deposit = ? WHERE id = ?";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setString(1, txttotalbal.getText());
+            statement.setString(2, txtAccN.getText());
+            int rowsAffected = statement.executeUpdate();
+                if (rowsAffected > 0) {
+                    System.out.println("Account updated successfully");
+                    JOptionPane.showMessageDialog(null,"Account updated successfully",
+                    "INFORMATION",JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                        System.out.println("Failed to update account");
+                       }
+        }} catch (SQLException e) {
+            e.printStackTrace();
+        }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Withdrawcontroller cac= new Withdrawcontroller(this);
 
+    }//GEN-LAST:event_btnwithdrawActionPerformed
+    
+    
     private void btnsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearchActionPerformed
     Connection conn = DataConnection.dbconnect();
     String s = txtAccN.getText();
@@ -404,9 +462,13 @@ Connection con;
         Loanview ca= new Loanview();
         ca.setVisible(true);    }//GEN-LAST:event_btnloanActionPerformed
 
-    private void txtphoneN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtphoneN1ActionPerformed
+    private void txttotalbalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttotalbalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtphoneN1ActionPerformed
+    }//GEN-LAST:event_txttotalbalActionPerformed
+
+    private void btncancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelActionPerformed
+    resetme();        // TODO add your handling code here:
+    }//GEN-LAST:event_btncancelActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -452,7 +514,7 @@ Connection con;
     private javax.swing.JTextField txtcustomerN;
     private javax.swing.JTextField txtdate;
     private javax.swing.JTextField txtphoneN;
-    private javax.swing.JTextField txtphoneN1;
+    private javax.swing.JTextField txttotalbal;
     private javax.swing.JTextField txtwithdrawA;
     // End of variables declaration//GEN-END:variables
 

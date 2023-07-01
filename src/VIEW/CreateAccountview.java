@@ -36,13 +36,11 @@ private void enableInterestRateRadioButtons() {
         rb_10int.setEnabled(true);
         rb_13int.setEnabled(true);
     }
-
 private void disableInterestRateRadioButtons() {
         rb_5int.setEnabled(false);
         rb_10int.setEnabled(false);
         rb_13int.setEnabled(false);
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -436,11 +434,11 @@ private void disableInterestRateRadioButtons() {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-public void addacc(ActionListener log)
-{
-  btncreate.addActionListener(log);
-}
-  public CreateAccountmodel getMymodel()
+    public void addacc(ActionListener log)
+    {
+        btncreate.addActionListener(log);
+    }
+    public CreateAccountmodel getMymodel()
     {
         model=new CreateAccountmodel(txtfirstname.getText(),txtmidname.getText(),txtlastname.getText(),
        txtaddress.getText(),((txtnationality.getSelectedItem()).toString()),txtprofession.getText(),txtemail.getText(),type_acc,txtdob.getText(),int_for,int_per,txtdate.getText(),(Integer.parseInt(txtphoneno.getText())),(Integer.parseInt(txtcitizenshipno.getText())),(Integer.parseInt(txtdeposite.getText())));
@@ -525,64 +523,34 @@ public void addacc(ActionListener log)
     }//GEN-LAST:event_rb_13intActionPerformed
 
     private void btncreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncreateActionPerformed
-
-CreateAccountcontroller cac= new CreateAccountcontroller(this);
+    CreateAccountcontroller cac= new CreateAccountcontroller(this);
     }//GEN-LAST:event_btncreateActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-this.setVisible(false);
+        this.setVisible(false);
         UpdateAccountview ca= new UpdateAccountview();
-
-       ca.setVisible(true);         // TODO add your handling code here:
+        ca.setVisible(true);         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btnintrestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnintrestActionPerformed
-  this.setVisible(false);
+        this.setVisible(false);
         Interestview ca= new Interestview();
-
-       ca.setVisible(true);         // TODO add your handling code here:
+        ca.setVisible(true);         // TODO add your handling code here:
     }//GEN-LAST:event_btnintrestActionPerformed
 
     private void btntransachistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntransachistoryActionPerformed
-this.setVisible(false);
+        this.setVisible(false);
         Statementview ca= new Statementview();
         ca.setVisible(true);         // TODO add your handling code here:
     }//GEN-LAST:event_btntransachistoryActionPerformed
 
     private void btnloanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloanActionPerformed
-this.setVisible(false);
+        this.setVisible(false);
         Loanview ca= new Loanview();
         ca.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_btnloanActionPerformed
 
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CreateAccountview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CreateAccountview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CreateAccountview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CreateAccountview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new CreateAccountview().setVisible(true);
