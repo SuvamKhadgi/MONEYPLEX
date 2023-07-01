@@ -63,6 +63,8 @@ Connection con;
         btncancel = new javax.swing.JButton();
         lblavailableA = new javax.swing.JLabel();
         txtavailableA = new javax.swing.JTextField();
+        txtphoneN1 = new javax.swing.JTextField();
+        lblphoneN1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -200,14 +202,14 @@ Connection con;
 
         lblAccN.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         lblAccN.setText("ACCOUNT NO:-");
-        jPanel2.add(lblAccN, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 150, 30));
+        jPanel2.add(lblAccN, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 150, 30));
 
         txtAccN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAccNActionPerformed(evt);
             }
         });
-        jPanel2.add(txtAccN, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 200, 30));
+        jPanel2.add(txtAccN, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, 200, 30));
 
         btnsearch.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         btnsearch.setText("SEARCH");
@@ -216,7 +218,7 @@ Connection con;
                 btnsearchActionPerformed(evt);
             }
         });
-        jPanel2.add(btnsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 100, 30));
+        jPanel2.add(btnsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 30, 100, 30));
 
         lblcustomerN.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         lblcustomerN.setText("CUSTOMER NAME");
@@ -246,15 +248,15 @@ Connection con;
         jPanel2.add(txtdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 200, 30));
 
         lblphoneN.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        lblphoneN.setText("PHONE NO");
-        jPanel2.add(lblphoneN, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 150, 30));
+        lblphoneN.setText("TOTAL BALANCE");
+        jPanel2.add(lblphoneN, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 150, 30));
 
         txtphoneN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtphoneNActionPerformed(evt);
             }
         });
-        jPanel2.add(txtphoneN, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 200, 30));
+        jPanel2.add(txtphoneN, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 250, 200, 30));
 
         checkcorrect.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         checkcorrect.setText("I CONFIRM THE ABOVE INFORMATION IS CORRECT.");
@@ -287,6 +289,17 @@ Connection con;
         jPanel2.add(lblavailableA, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 160, 30));
         jPanel2.add(txtavailableA, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 200, 30));
 
+        txtphoneN1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtphoneN1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtphoneN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 200, 30));
+
+        lblphoneN1.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        lblphoneN1.setText("PHONE NO");
+        jPanel2.add(lblphoneN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 150, 30));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 860, 460));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 640));
 
@@ -297,39 +310,35 @@ Connection con;
     private void btntransactionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntransactionActionPerformed
 
     }//GEN-LAST:event_btntransactionActionPerformed
-public void resetme(){
-    txtAccN.setText("");
-    txtwithdrawA.setText(" ");
-    txtcustomerN.setText(" ");
-    txtavailableA.setText(" ");
-    txtphoneN.setText(" ");
+    public void resetme(){
+        txtAccN.setText("");
+        txtwithdrawA.setText(" ");
+        txtcustomerN.setText(" ");
+        txtavailableA.setText(" ");
+        txtphoneN.setText(" ");
     }
     private void btnhomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhomeActionPerformed
-this.setVisible(false);
+        this.setVisible(false);
         DashBoardview ca= new DashBoardview();
-
-       ca.setVisible(true);
+        ca.setVisible(true);
     }//GEN-LAST:event_btnhomeActionPerformed
 
     private void btncustomermgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncustomermgActionPerformed
-this.setVisible(false);
+        this.setVisible(false);
         CreateAccountview ca= new CreateAccountview();
-
-       ca.setVisible(true);
+        ca.setVisible(true);
     }//GEN-LAST:event_btncustomermgActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-this.setVisible(false);
+        this.setVisible(false);
         Depositview ca= new Depositview();
-
-       ca.setVisible(true);        // TODO add your handling code here:
+        ca.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-this.setVisible(false);
+        this.setVisible(false);
         UpdateAccountview ca= new UpdateAccountview();
-
-       ca.setVisible(true);         // TODO add your handling code here:
+        ca.setVisible(true);         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -362,7 +371,7 @@ this.setVisible(false);
     }//GEN-LAST:event_btnwithdrawActionPerformed
 
     private void btnsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearchActionPerformed
-   Connection conn = DataConnection.dbconnect();
+    Connection conn = DataConnection.dbconnect();
     String s = txtAccN.getText();
     
     try {
@@ -379,22 +388,25 @@ this.setVisible(false);
     }//GEN-LAST:event_btnsearchActionPerformed
 
     private void btnintrestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnintrestActionPerformed
-         this.setVisible(false);
+        this.setVisible(false);
         Interestview ca= new Interestview();
-
-       ca.setVisible(true); 
+        ca.setVisible(true); 
     }//GEN-LAST:event_btnintrestActionPerformed
 
     private void btntransachistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntransachistoryActionPerformed
-this.setVisible(false);
+        this.setVisible(false);
         Statementview ca= new Statementview();
         ca.setVisible(true);         // TODO add your handling code here:
     }//GEN-LAST:event_btntransachistoryActionPerformed
 
     private void btnloanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloanActionPerformed
-this.setVisible(false);
+        this.setVisible(false);
         Loanview ca= new Loanview();
         ca.setVisible(true);    }//GEN-LAST:event_btnloanActionPerformed
+
+    private void txtphoneN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtphoneN1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtphoneN1ActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -433,12 +445,14 @@ this.setVisible(false);
     private javax.swing.JLabel lblcustomerN;
     private javax.swing.JLabel lbldate;
     private javax.swing.JLabel lblphoneN;
+    private javax.swing.JLabel lblphoneN1;
     private javax.swing.JLabel lblwithdrawA;
     private javax.swing.JTextField txtAccN;
     private javax.swing.JTextField txtavailableA;
     private javax.swing.JTextField txtcustomerN;
     private javax.swing.JTextField txtdate;
     private javax.swing.JTextField txtphoneN;
+    private javax.swing.JTextField txtphoneN1;
     private javax.swing.JTextField txtwithdrawA;
     // End of variables declaration//GEN-END:variables
 

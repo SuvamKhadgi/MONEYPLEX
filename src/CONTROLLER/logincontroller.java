@@ -3,6 +3,7 @@ package CONTROLLER;
 import MODEL.*;
 import VIEW.*;
 import java.sql.*;
+import javax.swing.JOptionPane;
 public class logincontroller {
 loginmodel mymodel;
 LoginView myview;
@@ -35,6 +36,8 @@ class LoginList
         }
         else
         {
+            myview.showMessageBox("Invalid username or password");
+            
         }
         }
         catch(Exception e1)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 

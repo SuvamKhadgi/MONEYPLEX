@@ -6,6 +6,8 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import MODEL.*;
 import CONTROLLER.*;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 public class LoginView extends javax.swing.JFrame {
     loginmodel model;
     public LoginView() {
@@ -32,6 +34,10 @@ public class LoginView extends javax.swing.JFrame {
         btnlogin = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jTextArea = new javax.swing.JScrollPane();
+        msgbox = new javax.swing.JTextArea();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        msgbox2 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("BANK MANAGMENT SYSTEM");
@@ -78,6 +84,11 @@ public class LoginView extends javax.swing.JFrame {
 
         txtterms_conditions.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtterms_conditions.setText("TERMS AND CONDITIONS");
+        txtterms_conditions.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtterms_conditionsActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtterms_conditions, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, -1, -1));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, 160, 150));
 
@@ -124,6 +135,18 @@ public class LoginView extends javax.swing.JFrame {
         jLabel5.setText("jLabel5");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 346, 30, 50));
 
+        msgbox.setColumns(20);
+        msgbox.setRows(5);
+        jTextArea.setViewportView(msgbox);
+
+        getContentPane().add(jTextArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 230, -1, -1));
+
+        msgbox2.setColumns(20);
+        msgbox2.setRows(5);
+        jScrollPane1.setViewportView(msgbox2);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, -1, -1));
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -143,7 +166,7 @@ public class LoginView extends javax.swing.JFrame {
     }
     public void showMessageBox(String msg)
     {
-        JOptionPane.showMessageDialog(this,msg);
+        JOptionPane.showMessageDialog(this,msg,"SORRY",JOptionPane.ERROR_MESSAGE);
     }
     private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
        if(txtprivacy_policy.isSelected()&&txtterms_conditions.isSelected()){   
@@ -151,11 +174,27 @@ public class LoginView extends javax.swing.JFrame {
         }
         else{
           System.out.println("wrong");
-          JOptionPane.showMessageDialog(this,"WRONG USERNAME OR PASSWORD AND AGREE CONDITIONS", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+          JOptionPane.showMessageDialog(this,"PLEASE AGREE BOTH TERMS AND CONDITION", "ERROR", JOptionPane.ERROR_MESSAGE);
         }             
     }//GEN-LAST:event_btnloginActionPerformed
 
     private void txtprivacy_policyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtprivacy_policyActionPerformed
+ if (txtprivacy_policy.isSelected()) {
+     String longText ="At our bank application, we prioritize the privacy and security of our customers'"
+                            + "information. We adhere to strict data protection measures to safeguard personal and financial details. "
+                            + "We collect only necessary information for account management and transaction processing, and never share it with unauthorized parties."
+                            + " Our systems employ robust encryption and firewalls to ensure data integrity and prevent unauthorized access."
+                            + " We regularly update security protocols and maintain strict confidentiality policies to maintain the trust"
+                            + " and confidence of our valued customers.";
+        msgbox.setText(longText);
+        msgbox.setWrapStyleWord(true);
+        msgbox.setLineWrap(true);
+        msgbox.setEditable(false);
+
+        JScrollPane scrollPane = new JScrollPane(msgbox);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                    JOptionPane.showMessageDialog(this,scrollPane );
+                }
 
     }//GEN-LAST:event_txtprivacy_policyActionPerformed
 
@@ -164,6 +203,26 @@ public class LoginView extends javax.swing.JFrame {
             s.setVisible(true);
             this.hide();
     }//GEN-LAST:event_btnnewadmActionPerformed
+
+    private void txtterms_conditionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtterms_conditionsActionPerformed
+        if (txtterms_conditions.isSelected()) {
+             String longText1 ="By using our bank application, you agree to comply with the following terms and conditions."
+                     + " The bank reserves the right to modify or update these terms at any time without prior notice. "
+                     + "You are responsible for maintaining the security of your login credentials and ensuring the accuracy of the information provided. "
+                     + "Unauthorized use of the application is strictly prohibited. The bank is not liable for any loss or damage arising from the use of the application"
+                     + " or any errors or interruptions in its functionality. The bank reserves the right to suspend or terminate access to the application for any reason."
+                     + " All transactions conducted through the application are subject to the bank's standard terms and fees. By using the application, you consent to "
+                     + "the collection and use of your personal information in accordance with our privacy policy.";
+                    // Show popup message when checkbox text is clicked
+                     msgbox2.setText(longText1);
+        msgbox2.setWrapStyleWord(true);
+        msgbox2.setLineWrap(true);
+        msgbox2.setEditable(false);
+                JScrollPane scrollPane = new JScrollPane(msgbox2);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                    JOptionPane.showMessageDialog(this, scrollPane);
+                }
+    }//GEN-LAST:event_txtterms_conditionsActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -198,6 +257,10 @@ public class LoginView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jTextArea;
+    private javax.swing.JTextArea msgbox;
+    private javax.swing.JTextArea msgbox2;
     private javax.swing.JPasswordField txtpassword;
     private javax.swing.JCheckBox txtprivacy_policy;
     private javax.swing.JCheckBox txtterms_conditions;

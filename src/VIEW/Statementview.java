@@ -32,6 +32,11 @@ public class Statementview extends javax.swing.JFrame {
         txtaccno = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        txtacno = new javax.swing.JTextField();
+        txtacname = new javax.swing.JTextField();
+        txtcrtdate = new javax.swing.JTextField();
+        txtotal = new javax.swing.JTextField();
+        txttypac = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MONEYPLEX");
@@ -104,21 +109,25 @@ public class Statementview extends javax.swing.JFrame {
         txtmybill.setRows(5);
         jScrollPane1.setViewportView(txtmybill);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 1080, 360));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, 480, 360));
 
+        jButton1.setBackground(new java.awt.Color(204, 255, 255));
+        jButton1.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jButton1.setText("PRINT ME");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(415, 600, 150, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 605, 150, 30));
 
         jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         jLabel2.setText("ACCOUNT NO");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, -1, 30));
         getContentPane().add(txtaccno, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, 130, 30));
 
+        jButton2.setBackground(new java.awt.Color(204, 255, 255));
+        jButton2.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jButton2.setText("SEARCH");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,6 +136,11 @@ public class Statementview extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 200, 90, 30));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 640));
+        getContentPane().add(txtacno, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 200, -1, -1));
+        getContentPane().add(txtacname, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 210, -1, -1));
+        getContentPane().add(txtcrtdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 190, -1, -1));
+        getContentPane().add(txtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 210, -1, -1));
+        getContentPane().add(txttypac, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 180, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -166,33 +180,34 @@ public class Statementview extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
     Connection conn = DataConnection.dbconnect();
     String s = txtaccno.getText();
-    
     try {
         PreparedStatement pst = conn.prepareStatement("SELECT * FROM info WHERE id=?");
         pst.setString(1, s);
 
         ResultSet rs = pst.executeQuery();
         if (rs.next()) {
-//            txtcustomerN.setText(rs.getString(2));
-//            txtavailableA.setText(rs.getString(16));
+            txtotal.setText(rs.getString(16));
+            txtacname.setText(rs.getString(2));
+            txtacno.setText(rs.getString(1));
+            txttypac.setText(rs.getString(12));
+            txtcrtdate.setText(rs.getString(15));
     
         txtmybill.setText("""
                           \t\t  MONEYPLEX BANK
                           \t\tDILLIBAZAR,KATHMANDU
                           \t\tPHONE NO: 9841000000
-                          *************************************************************************************************
+                          ***************************************************************************************************
                           \t\tBANK STATEMENT
-                          *************************************************************************************************
-                          ACCOUNT INFORMATION:
-                          ACCOUNT NUMBER:
-                          ACCOUNT HOLDER
-                          ACCOUNT TYPE
-                          STARTED DATE
-                          *************************************************************************************************
-                          \t\tTRANSACTIONS
-                          
-                          **************************************************************************************************
-                          TOTAL BALANCE:""");
+                          ***************************************************************************************************""");
+        txtmybill.setText(txtmybill.getText()+"\n"+" ACCOUNT INFORMATION:"
+                + "\n"+"ACCOUNT NUMBER:\t"+txtacno.getText()
+                + "\n"+"ACCOUNT HOLDER \t"+txtacname.getText()
+                + "\n"+"ACCOUNT TYPE \t"+txttypac.getText()
+                + "\n"+"STARTED DATE \t"+txtcrtdate.getText()
+                + "\n"+"***************************************************************************************************"
+                + "\n"+"\t\tTRANSACTIONS"
+                + "\n"+"***************************************************************************************************"
+                + "\n"+"TOTAL BALANCE:\t"+txtotal.getText());
 //        txtmybill.setText(txtmybill.getText()+)
             }
     } catch (Exception e) {
@@ -228,6 +243,11 @@ this.setVisible(false);
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtaccno;
+    private javax.swing.JTextField txtacname;
+    private javax.swing.JTextField txtacno;
+    private javax.swing.JTextField txtcrtdate;
     private javax.swing.JTextArea txtmybill;
+    private javax.swing.JTextField txtotal;
+    private javax.swing.JTextField txttypac;
     // End of variables declaration//GEN-END:variables
 }
