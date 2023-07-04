@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 public class Depositview extends javax.swing.JFrame {
 Depositmodel model;
     public Depositview() {
@@ -406,6 +407,7 @@ Depositmodel model;
     }//GEN-LAST:event_checkcorrectActionPerformed
 
     private void btnwithdrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnwithdrawActionPerformed
+        if(checkcorrect.isSelected()){
         double availableAmount = Double.parseDouble(txtavailableA.getText());
         double withdrawAmount = Double.parseDouble(txtwithdrawA.getText());
         double newAmount = availableAmount + withdrawAmount;
@@ -413,6 +415,10 @@ Depositmodel model;
             Depositcontroller cac= new Depositcontroller(this);
             cac.checkMyData(model);
             cac.checkdata(model);
+        }else{
+          JOptionPane.showMessageDialog(null, "PLEASE CONFIRM THE DEPOSIT FIRST","CONFIRMATION REQUEST",JOptionPane.WARNING_MESSAGE);
+
+        }
            
     }//GEN-LAST:event_btnwithdrawActionPerformed
 

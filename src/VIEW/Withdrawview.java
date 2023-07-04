@@ -11,9 +11,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 public class Withdrawview extends javax.swing.JFrame {
-ResultSet rs;
-PreparedStatement pst;
-Connection con;
+
 Withdrawmodel model;
     public Withdrawview() {
         initComponents();
@@ -387,6 +385,7 @@ Withdrawmodel model;
     }//GEN-LAST:event_txtphoneNActionPerformed
 
     private void btnwithdrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnwithdrawActionPerformed
+        if(checkcorrect.isSelected()){
         double availableAmount = Double.parseDouble(txtavailableA.getText());
         double withdrawAmount = Double.parseDouble(txtwithdrawA.getText());
         if (availableAmount < withdrawAmount) {
@@ -395,54 +394,23 @@ Withdrawmodel model;
         }
         double newAmount = availableAmount - withdrawAmount;
         txttotalbal.setText(String.valueOf(newAmount));
-        //////////////////////////////////////////////////////////////////////////////////////
-        String accountNumber = txtAccN.getText();
-        String url = "jdbc:mysql://localhost:3306/crt_account";
-        String username = "root";
-        String password = "khadgi986";
-        try (Connection connection = DriverManager.getConnection(url, username, password)){
-        String idQuery = "SELECT id FROM info WHERE id= ?";
-        PreparedStatement idStatement = connection.prepareStatement(idQuery);
-        idStatement.setString(1, accountNumber);
-        ResultSet idResultSet = idStatement.executeQuery();
-        if (idResultSet.next()) {
-            int id = idResultSet.getInt("id");
-            String query = "UPDATE info SET deposit = ? WHERE id = ?";
-            PreparedStatement statement = connection.prepareStatement(query);
-            statement.setString(1, txttotalbal.getText());
-            statement.setString(2, txtAccN.getText());
-            int rowsAffected = statement.executeUpdate();
-                if (rowsAffected > 0) {
-                    System.out.println("Account updated successfully");
-                    JOptionPane.showMessageDialog(null,"Account updated successfully",
-                    "INFORMATION",JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                        System.out.println("Failed to update account");
-                       }
-        }} catch (SQLException e) {
-            e.printStackTrace();
-        }
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Withdrawcontroller cac= new Withdrawcontroller(this);
+        cac.checkMyData(model);
+        cac.checkdataa(model);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "PLEASE CONFIRM THE WITHDRAW FIRST","CONFIRMATION REQUEST",JOptionPane.WARNING_MESSAGE);
+        }
 
     }//GEN-LAST:event_btnwithdrawActionPerformed
     
     
     private void btnsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearchActionPerformed
-    Connection conn = DataConnection.dbconnect();
-    String s = txtAccN.getText();
-    
-    try {
-        PreparedStatement pst = conn.prepareStatement("SELECT * FROM info WHERE id=?");
-        pst.setString(1, s);
-        ResultSet rs = pst.executeQuery();
-        if (rs.next()) {
-            txtcustomerN.setText(rs.getString(2));
-            txtavailableA.setText(rs.getString(16));
-        }
-    } catch (Exception e) {
-        e.printStackTrace();
-    }  
+  
+    Withdrawcontroller cac= new Withdrawcontroller(this);
+        cac.chkdata(model);
+         txtcustomerN.setText(model.getName());
+         txtavailableA.setText(model.getAva_amt());
     }//GEN-LAST:event_btnsearchActionPerformed
 
     private void btnintrestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnintrestActionPerformed
