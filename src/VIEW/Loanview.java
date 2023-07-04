@@ -135,57 +135,63 @@ String Account;
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel13.setText("Loan");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 70, 60));
+        jLabel13.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLabel13.setText("LOAN");
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 70, 60));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 1080, 80));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 1080, 70));
 
         jPanel3.setBackground(new java.awt.Color(153, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel7.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         jLabel7.setText("Full Name");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
+        jLabel8.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         jLabel8.setText("Address");
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
+        jLabel9.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         jLabel9.setText("Account Type");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel10.setText("Withdrawal");
         jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
+        jLabel11.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         jLabel11.setText("Deposit");
         jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
+        jLabel12.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         jLabel12.setText("Overdraft Required?");
         jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
-        jPanel3.add(txtname, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 160, -1));
+        jPanel3.add(txtname, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 160, 30));
 
         txtaddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtaddressActionPerformed(evt);
             }
         });
-        jPanel3.add(txtaddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 160, -1));
+        jPanel3.add(txtaddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 160, 30));
 
         txtacctype.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtacctypeActionPerformed(evt);
             }
         });
-        jPanel3.add(txtacctype, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 160, -1));
-        jPanel3.add(txtwithdrawal, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 160, -1));
-        jPanel3.add(txtdeposit, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 160, -1));
+        jPanel3.add(txtacctype, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 160, 30));
+        jPanel3.add(txtwithdrawal, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 160, 30));
+        jPanel3.add(txtdeposit, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 160, 30));
 
         txtoverdraft.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtoverdraftActionPerformed(evt);
             }
         });
-        jPanel3.add(txtoverdraft, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 160, -1));
+        jPanel3.add(txtoverdraft, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 160, 30));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 570, 290));
 
@@ -193,12 +199,15 @@ String Account;
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblinterest.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         lblinterest.setText("Interest Rate");
         jPanel4.add(lblinterest, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
+        lblpayment.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         lblpayment.setText("Number of Payments");
         jPanel4.add(lblpayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
+        lblmonthlypayment.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         lblmonthlypayment.setText("Monthly Payment");
         jPanel4.add(lblmonthlypayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
         jPanel4.add(txtamountloan, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 170, -1));
@@ -212,6 +221,7 @@ String Account;
         jPanel4.add(txtmthpayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 170, -1));
         jPanel4.add(txtnumpayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 170, -1));
 
+        lblamtloan.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         lblamtloan.setText("Amount of Loan");
         jPanel4.add(lblamtloan, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
@@ -232,29 +242,35 @@ String Account;
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnloancalculator.setBackground(new java.awt.Color(102, 204, 255));
+        btnloancalculator.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         btnloancalculator.setText("CALCULATE LOAN");
         btnloancalculator.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnloancalculatorActionPerformed(evt);
             }
         });
-        jPanel6.add(btnloancalculator, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 20, 130, 30));
+        jPanel6.add(btnloancalculator, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 20, 170, 30));
 
+        btnreset.setBackground(new java.awt.Color(204, 204, 204));
+        btnreset.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         btnreset.setText("Reset");
         btnreset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnresetActionPerformed(evt);
             }
         });
-        jPanel6.add(btnreset, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 20, 100, 30));
+        jPanel6.add(btnreset, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, 100, 30));
 
+        btnexit.setBackground(new java.awt.Color(255, 102, 102));
+        btnexit.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         btnexit.setText("LOG OUT");
         btnexit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnexitActionPerformed(evt);
             }
         });
-        jPanel6.add(btnexit, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 90, 30));
+        jPanel6.add(btnexit, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 100, 30));
 
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 1080, 70));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 640));
@@ -306,8 +322,7 @@ this.setVisible(false);
     }//GEN-LAST:event_btnexitActionPerformed
 
     private void btnloancalculatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloancalculatorActionPerformed
-        
-        
+
         
         String iMonthPayment = String .format(txtnumpayment.getText());
         
