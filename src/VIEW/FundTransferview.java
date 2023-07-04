@@ -1,14 +1,19 @@
 package VIEW;
-
+import CONTROLLER.FundTransfercontroller;
+import MODEL.DataConnection;
+import MODEL.FundTransfermodel;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import java.sql.*;
-
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JButton;
+import javax.swing.JTable;
 public class FundTransferview extends javax.swing.JFrame {
-    private Connection connection; // Database connection object
-
+    FundTransfermodel modele;
     public FundTransferview() {
         initComponents();
         ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Moneyplex Bank.png")));
@@ -16,13 +21,18 @@ public class FundTransferview extends javax.swing.JFrame {
         Image img2 = img1.getScaledInstance(jLabel4.getWidth(), jLabel4.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon i = new ImageIcon(img2);
         jLabel4.setIcon(i);
-        try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/crt_account", "root", "khadgi986");
-        } catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Failed to connect to the database.", "Error", JOptionPane.ERROR_MESSAGE);
-            System.exit(1);
-        }
+        LocalDate today = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String formattedDate = today.format(formatter);
+        txtdate.setText(formattedDate);
+    }
+    public void transfer(ActionListener log)
+    {
+        btntransfer.addActionListener(log);
+    }
+    public FundTransfermodel getmodel(){
+        modele=new FundTransfermodel(txtsendersacc.getText(),txtrecipientsacc.getText(),txttransferamount.getText(),txtdate.getText(),txtreference.getText());
+        return modele;
     }
 
     @SuppressWarnings("unchecked")
@@ -33,6 +43,7 @@ public class FundTransferview extends javax.swing.JFrame {
         btngrpint_for = new javax.swing.ButtonGroup();
         buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
         btnhome = new javax.swing.JButton();
         btncustomermg = new javax.swing.JButton();
         btntransaction = new javax.swing.JButton();
@@ -60,8 +71,13 @@ public class FundTransferview extends javax.swing.JFrame {
         txtreference = new javax.swing.JTextField();
         checkcorrect = new javax.swing.JCheckBox();
         btntransfer = new javax.swing.JButton();
-        btncancel = new javax.swing.JButton();
+        btnreset = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbltransfer = new javax.swing.JTable();
+        btngetdata = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+
+        jButton5.setText("jButton5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MONEYPLEX");
@@ -234,24 +250,55 @@ public class FundTransferview extends javax.swing.JFrame {
         btntransfer.setBackground(new java.awt.Color(0, 0, 0));
         btntransfer.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         btntransfer.setForeground(new java.awt.Color(51, 255, 0));
-        btntransfer.setText("Transfer");
+        btntransfer.setText("TRANSFER");
         btntransfer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btntransferActionPerformed(evt);
             }
         });
-        jPanel2.add(btntransfer, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 100, 30));
+        jPanel2.add(btntransfer, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 120, 30));
 
-        btncancel.setBackground(new java.awt.Color(0, 0, 0));
-        btncancel.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        btncancel.setForeground(new java.awt.Color(255, 0, 0));
-        btncancel.setText("Cancel");
-        btncancel.addActionListener(new java.awt.event.ActionListener() {
+        btnreset.setBackground(new java.awt.Color(0, 0, 0));
+        btnreset.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        btnreset.setForeground(new java.awt.Color(255, 0, 0));
+        btnreset.setText("RESET");
+        btnreset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncancelActionPerformed(evt);
+                btnresetActionPerformed(evt);
             }
         });
-        jPanel2.add(btncancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, 100, 30));
+        jPanel2.add(btnreset, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 130, 30));
+
+        tbltransfer.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "SENDER AC", "RECIVER AC", "DATE", "AMOUNT", "reference"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tbltransfer);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, 380, 190));
+
+        btngetdata.setBackground(new java.awt.Color(0, 0, 0));
+        btngetdata.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        btngetdata.setForeground(new java.awt.Color(102, 204, 255));
+        btngetdata.setText("GET DATA");
+        btngetdata.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btngetdataActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btngetdata, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 280, 130, 30));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 860, 460));
 
@@ -316,7 +363,8 @@ public class FundTransferview extends javax.swing.JFrame {
 
     private void btntransferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntransferActionPerformed
         if (checkcorrect.isSelected()) {
-                    checkAndTransferMoney();
+                    FundTransfercontroller ftcc=new FundTransfercontroller(this);
+                    ftcc.checkMyData(modele);
                 } else {
                     JOptionPane.showMessageDialog(null, "Please confirm the transfer.", "Confirmation Required",
                             JOptionPane.WARNING_MESSAGE);
@@ -327,115 +375,22 @@ public class FundTransferview extends javax.swing.JFrame {
     private void txtdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdateActionPerformed
 
     }//GEN-LAST:event_txtdateActionPerformed
-
-    private void btncancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelActionPerformed
-
-    }//GEN-LAST:event_btncancelActionPerformed
-private void checkAndTransferMoney() {
-    String senderAccount = txtsendersacc.getText();
-    String recipientAccount = txtrecipientsacc.getText();
-    double transferAmount = Double.parseDouble(txttransferamount.getText());
-    String date = txtdate.getText();
-    String reference = txtreference.getText();
-
-    try {
-        // Check sender's account balance in the database
-        double senderBalance = getAccountBalance(senderAccount);
-        if (senderBalance >= transferAmount) {
-            // Check recipient's account existence in the database
-//            if (accountExists(recipientAccount)) {
-                // Check recipient's deposit balance in the database
-                double recipientDeposit = getAccountDeposit(recipientAccount);
-                if (recipientDeposit >= transferAmount) {
-                    // Perform the money transfer
-                    transferMoney(senderAccount, recipientAccount, transferAmount);
-                    JOptionPane.showMessageDialog(null, "Transfer successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Recipient has insufficient deposit.", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-//            } else {
-//                JOptionPane.showMessageDialog(null, "Recipient account not found.", "Error", JOptionPane.ERROR_MESSAGE);
-//            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Sender has insufficient funds.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    } catch (SQLException e) {
-        e.printStackTrace();
-        JOptionPane.showMessageDialog(null, "Failed to check account details.", "Error", JOptionPane.ERROR_MESSAGE);
-    }
-
-
-        // Clear the fields after transfer
-//        resetFields();
-    }
-
-private void transferMoney(String senderAccount, String recipientAccount, double transferAmount) throws SQLException {
-    // Deduct the transfer amount from the sender's account
-    double senderBalance = getAccountBalance(senderAccount);
-    double updatedSenderBalance = senderBalance - transferAmount;
-    updateAccountBalance(senderAccount, updatedSenderBalance);
-
-    // Add the transfer amount to the recipient's account
-    double recipientBalance = getAccountBalance(recipientAccount);
-    double updatedRecipientBalance = recipientBalance + transferAmount;
-    updateAccountBalance(recipientAccount, updatedRecipientBalance);
-
-    // Log the transaction details in the database or any other logging mechanism
-//    logTransaction(senderAccount, recipientAccount, transferAmount);
+    public void reset(){
+        txtsendersacc.setText("");
+        txtrecipientsacc.setText("");
+        txtreference.setText("");
+        txttransferamount.setText("");
 }
-
-private void updateAccountBalance(String accountNumber, double newBalance) throws SQLException {
-    String query = "UPDATE info SET deposit = ? WHERE id = ?";
-    try (PreparedStatement statement = connection.prepareStatement(query)) {
-        statement.setDouble(1, newBalance);
-        statement.setString(2, accountNumber);
-        statement.executeUpdate();
-    }
-}
-//
-//private void logTransaction(String senderAccount, String recipientAccount, double transferAmount ) throws SQLException {
-//    String query = "INSERT INTO transactions (sender_account, recipient_account, transfer_amount, date, reference) VALUES (?, ?, ?, ?, ?)";
-//    try (PreparedStatement statement = connection.prepareStatement(query)) {
-//        statement.setString(1, senderAccount);
-//        statement.setString(2, recipientAccount);
-//        statement.setDouble(3, transferAmount);
-////        statement.setString(4, date);
-////        statement.setString(5, reference);
-//        statement.executeUpdate();
-//    }
-//}
-
-    private double getAccountBalance(String accountNumber) throws SQLException {
-        // Retrieve the account balance from the database
-        String query = "SELECT deposit FROM info WHERE id = ?";
-        double balance = 0.0;
-
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, accountNumber);
-            ResultSet result = statement.executeQuery();
-
-            if (result.next()) {
-                balance = result.getDouble("deposit");
-            }
-        }
-
-        return balance;
-    }
-    private double getAccountDeposit(String accountNumber) throws SQLException {
-        // Retrieve the account balance from the database
-        String query = "SELECT deposit FROM info WHERE id = ?";
-        double balance = 0.0;
-
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, accountNumber);
-            ResultSet result = statement.executeQuery();
-
-            if (result.next()) {
-                balance = result.getDouble("deposit");
-            }
-        }
-
-        return balance;
+    private void btnresetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnresetActionPerformed
+        reset();
+    }//GEN-LAST:event_btnresetActionPerformed
+ 
+    private void btngetdataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngetdataActionPerformed
+        FundTransfercontroller controller = new FundTransfercontroller(this);   
+        controller.checkMyDataa();
+    }//GEN-LAST:event_btngetdataActionPerformed
+    public JTable getTblTransfer() {
+        return tbltransfer;
     }
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -446,14 +401,15 @@ private void updateAccountBalance(String accountNumber, double newBalance) throw
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btncancel;
     private javax.swing.JButton btncustomermg;
+    private javax.swing.JButton btngetdata;
     private javax.swing.ButtonGroup btngrpint_for;
     private javax.swing.ButtonGroup btngrptyp_acc;
     private javax.swing.JButton btnhome;
     private javax.swing.JButton btnintrest;
     private javax.swing.JButton btnloan;
     private javax.swing.JButton btnreport;
+    private javax.swing.JButton btnreset;
     private javax.swing.JButton btntransachistory;
     private javax.swing.JButton btntransaction;
     private javax.swing.JButton btntransfer;
@@ -463,24 +419,24 @@ private void updateAccountBalance(String accountNumber, double newBalance) throw
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbldate;
     private javax.swing.JLabel lblrecipientsacc;
     private javax.swing.JLabel lblreference;
     private javax.swing.JLabel lblsendersacc;
     private javax.swing.JLabel lbltransferamount;
+    private javax.swing.JTable tbltransfer;
     private javax.swing.JTextField txtdate;
     private javax.swing.JTextField txtrecipientsacc;
     private javax.swing.JTextField txtreference;
     private javax.swing.JTextField txtsendersacc;
     private javax.swing.JTextField txttransferamount;
     // End of variables declaration//GEN-END:variables
-private String type_acc;
-private String int_for;
-private String int_per;
 }
