@@ -1,7 +1,18 @@
 package MODEL;
 public class Interestmodel {
  
-    private String ac_no, ac_name, ac_phone, balance, crtdate, typacc, timep, intrate;
+    String ac_no, ac_name, ac_phone, balance, crtdate, typacc, timep, intrate;
+
+    public Interestmodel(String ac_no, String ac_name, String ac_phone, String balance, String crtdate, String typacc, String timep, String intrate) {
+        this.ac_no = ac_no;
+        this.ac_name = ac_name;
+        this.ac_phone = ac_phone;
+        this.balance = balance;
+        this.crtdate = crtdate;
+        this.typacc = typacc;
+        this.timep = timep;
+        this.intrate = intrate;
+    }
 
     // Constructor
     public Interestmodel() {

@@ -3,23 +3,22 @@ import CONTROLLER.Interestcontroller;
 import MODEL.Interestmodel;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 public class Interestview extends javax.swing.JFrame {
-private Interestcontroller controller;
+Interestcontroller controller;
+Interestmodel model;
     public Interestview() {
-        controller = new Interestcontroller();
+        controller = new Interestcontroller(this);
         initComponents();
         ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Moneyplex Bank.png")));
         Image img1 = myimage.getImage();
         Image img2 = img1.getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon i = new ImageIcon(img2);
         jLabel1.setIcon(i); 
+    }
+    public Interestmodel getMymodel(){
+        model=new Interestmodel(txtac_no.getText(),txtac_name.getText(),txtac_phone.getText(),txttol_balance.getText(),txtcrtdate.getText(),txttyp_ac.getText(),txttimep.getText(),txtintrate.getText());
+        return model;
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -29,7 +28,7 @@ private Interestcontroller controller;
         btngrpint_for = new javax.swing.ButtonGroup();
         buttonGroup1 = new javax.swing.ButtonGroup();
         btnhome = new javax.swing.JButton();
-        btncustomermg = new javax.swing.JButton();
+        btncustomer = new javax.swing.JButton();
         btntransaction = new javax.swing.JButton();
         btntransachistory = new javax.swing.JButton();
         btnintrest = new javax.swing.JButton();
@@ -38,8 +37,6 @@ private Interestcontroller controller;
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -85,16 +82,16 @@ private Interestcontroller controller;
         });
         getContentPane().add(btnhome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 150, 50));
 
-        btncustomermg.setBackground(new java.awt.Color(42, 144, 174));
-        btncustomermg.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        btncustomermg.setText("CUSTOMERS");
-        btncustomermg.setBorderPainted(false);
-        btncustomermg.addActionListener(new java.awt.event.ActionListener() {
+        btncustomer.setBackground(new java.awt.Color(42, 144, 174));
+        btncustomer.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        btncustomer.setText("CUSTOMERS");
+        btncustomer.setBorderPainted(false);
+        btncustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncustomermgActionPerformed(evt);
+                btncustomerActionPerformed(evt);
             }
         });
-        getContentPane().add(btncustomermg, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 150, 50));
+        getContentPane().add(btncustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 150, 50));
 
         btntransaction.setBackground(new java.awt.Color(42, 144, 174));
         btntransaction.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
@@ -150,32 +147,12 @@ private Interestcontroller controller;
         jButton1.setText("INTEREST GAINED");
         jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         jButton1.setBorderPainted(false);
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 220, 50));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 220, 50));
 
         jButton2.setBackground(new java.awt.Color(255, 102, 102));
         jButton2.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jButton2.setText("LOG OUT");
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 110, 40));
-
-        jButton3.setBackground(new java.awt.Color(42, 144, 174));
-        jButton3.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        jButton3.setBorderPainted(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 220, 50));
-
-        jButton4.setBackground(new java.awt.Color(42, 144, 174));
-        jButton4.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        jButton4.setBorderPainted(false);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 220, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/accountdetails.jpg"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 110, 100));
@@ -319,21 +296,11 @@ private Interestcontroller controller;
         ca.setVisible(true);
     }//GEN-LAST:event_btnhomeActionPerformed
 
-    private void btncustomermgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncustomermgActionPerformed
-
-    }//GEN-LAST:event_btncustomermgActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btncustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncustomerActionPerformed
         this.setVisible(false);
-        AccountDetailview ca= new AccountDetailview();
-        ca.setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        this.setVisible(false);
-        UpdateAccountview ca= new UpdateAccountview();
-        ca.setVisible(true);         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        CreateAccountview ca= new CreateAccountview();
+        ca.setVisible(true);
+    }//GEN-LAST:event_btncustomerActionPerformed
 
     private void txtac_noActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtac_noActionPerformed
         // TODO add your handling code here:
@@ -356,15 +323,15 @@ private Interestcontroller controller;
     }//GEN-LAST:event_txtint_accActionPerformed
 
     private void btnsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearchActionPerformed
-         String accountNumber = txtac_no.getText();
-                Interestmodel account = controller.searchAccount(accountNumber);
-                displayAccount(account);
+        String accountNumber = txtac_no.getText();
+        Interestmodel account = controller.searchAccount(accountNumber);
+        displayAccount(account);
     }//GEN-LAST:event_btnsearchActionPerformed
 
     private void btncalculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalculateActionPerformed
         calculateInterest();
     }//GEN-LAST:event_btncalculateActionPerformed
- private void calculateInterest() {
+    private void calculateInterest() {
         double principal = Double.parseDouble(txtbalance.getText());
         double rate = Double.parseDouble(txtintrate.getText());
         double time = getTimePeriodInYears();
@@ -375,7 +342,6 @@ private Interestcontroller controller;
         txtint_acc.setText(String.format("%.2f", interest));
         txttol_balance.setText(String.format("%.2f", totalAmount));
     }
-
     private double getTimePeriodInYears() {
         String timePeriod = (String) timePeriodComboBox.getSelectedItem();
         if (timePeriod.equals("3 months")) {
@@ -389,47 +355,23 @@ private Interestcontroller controller;
         }
     }
     private void btntransachistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntransachistoryActionPerformed
-this.setVisible(false);
+        this.setVisible(false);
         Statementview ca= new Statementview();
         ca.setVisible(true);         // TODO add your handling code here:
     }//GEN-LAST:event_btntransachistoryActionPerformed
 
     private void btnloanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloanActionPerformed
-this.setVisible(false);
+        this.setVisible(false);
         Loanview ca= new Loanview();
         ca.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_btnloanActionPerformed
 
     private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
-String accountNumber = txtac_no.getText();
-String url = "jdbc:mysql://localhost:3306/crt_account";
-        String username = "root";
-        String password = "khadgi986";
-try (Connection connection = DriverManager.getConnection(url, username, password)){
-    String idQuery = "SELECT id FROM info WHERE id= ?";
-    PreparedStatement idStatement = connection.prepareStatement(idQuery);
-    idStatement.setString(1, accountNumber);
-    ResultSet idResultSet = idStatement.executeQuery();
-    if (idResultSet.next()) {
-        int id = idResultSet.getInt("id");
-            String query = "UPDATE info SET deposit = ? WHERE id = ?";
-            PreparedStatement statement = connection.prepareStatement(query);
-            statement.setString(1, txttol_balance.getText());
-             statement.setString(2, txtac_no.getText());
-            int rowsAffected = statement.executeUpdate();
-            if (rowsAffected > 0) {
-                System.out.println("Account updated successfully");
-                JOptionPane.showMessageDialog(null,"Account updated successfully",
-                    "INFORMATION",JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                System.out.println("Failed to update account");
-            }
-        }} catch (SQLException e) {
-            e.printStackTrace();
-        }// TODO add your handling code here:
+        Interestcontroller icc= new Interestcontroller(this);
+        icc.dataupd(model);
     }//GEN-LAST:event_btnupdateActionPerformed
 
-     private void displayAccount(Interestmodel account) {
+    private void displayAccount(Interestmodel account) {
         txtac_name.setText(account.getAc_name());
         txtac_phone.setText(account.getAc_phone());
         txtbalance.setText(account.getBalance());
@@ -449,7 +391,7 @@ try (Connection connection = DriverManager.getConnection(url, username, password
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btncalculate;
-    private javax.swing.JButton btncustomermg;
+    private javax.swing.JButton btncustomer;
     private javax.swing.ButtonGroup btngrpint_for;
     private javax.swing.ButtonGroup btngrptyp_acc;
     private javax.swing.JButton btnhome;
@@ -463,8 +405,6 @@ try (Connection connection = DriverManager.getConnection(url, username, password
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
