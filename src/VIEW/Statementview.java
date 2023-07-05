@@ -1,9 +1,12 @@
 package VIEW;
 import MODEL.DataConnection;
 import java.awt.Image;
+//import java.awt.List;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 public class Statementview extends javax.swing.JFrame {
     public Statementview() {
         initComponents();
@@ -12,6 +15,18 @@ public class Statementview extends javax.swing.JFrame {
         Image img2 = img1.getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon i = new ImageIcon(img2);
         jLabel1.setIcon(i);
+        txtmybill.setEditable(false);
+        txtdates.setVisible(false);
+        txtdpamt.setVisible(false);
+        txtdpdate.setVisible(false);
+        txtavamt.setVisible(false);
+        txtwitamt.setVisible(false);
+        txttol.setVisible(false);
+        txttypac.setVisible(false);
+        txtacno.setVisible(false);
+        txtacname.setVisible(false);
+        txtcrtdate.setVisible(false);
+        txtotal.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -37,6 +52,12 @@ public class Statementview extends javax.swing.JFrame {
         txtcrtdate = new javax.swing.JTextField();
         txtotal = new javax.swing.JTextField();
         txttypac = new javax.swing.JTextField();
+        txtdates = new javax.swing.JTextField();
+        txtwitamt = new javax.swing.JTextField();
+        txttol = new javax.swing.JTextField();
+        txtdpamt = new javax.swing.JTextField();
+        txtdpdate = new javax.swing.JTextField();
+        txtavamt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MONEYPLEX");
@@ -109,7 +130,7 @@ public class Statementview extends javax.swing.JFrame {
         txtmybill.setRows(5);
         jScrollPane1.setViewportView(txtmybill);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, 480, 360));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 480, 360));
 
         jButton1.setBackground(new java.awt.Color(204, 255, 255));
         jButton1.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
@@ -119,7 +140,7 @@ public class Statementview extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 605, 150, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 610, 150, 30));
 
         jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         jLabel2.setText("ACCOUNT NO");
@@ -134,13 +155,37 @@ public class Statementview extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 200, 90, 30));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 640));
-        getContentPane().add(txtacno, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 200, -1, -1));
-        getContentPane().add(txtacname, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 210, -1, -1));
-        getContentPane().add(txtcrtdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 190, -1, -1));
-        getContentPane().add(txtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 210, -1, -1));
-        getContentPane().add(txttypac, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 180, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 200, 100, 30));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 650));
+        getContentPane().add(txtacno, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, -1, -1));
+        getContentPane().add(txtacname, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 550, -1, -1));
+        getContentPane().add(txtcrtdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
+        getContentPane().add(txtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, -1));
+        getContentPane().add(txttypac, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+        getContentPane().add(txtdates, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
+
+        txtwitamt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtwitamtActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtwitamt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
+        getContentPane().add(txttol, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, -1, -1));
+
+        txtdpamt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtdpamtActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtdpamt, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, -1, -1));
+        getContentPane().add(txtdpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, -1, -1));
+
+        txtavamt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtavamtActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtavamt, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 10, 10));
 
         pack();
         setLocationRelativeTo(null);
@@ -182,6 +227,8 @@ public class Statementview extends javax.swing.JFrame {
     String s = txtaccno.getText();
     try {
         PreparedStatement pst = conn.prepareStatement("SELECT * FROM info WHERE id=?");
+         PreparedStatement pt = conn.prepareStatement("SELECT * FROM statements WHERE id=?");
+         pt.setString(1, s);
         pst.setString(1, s);
 
         ResultSet rs = pst.executeQuery();
@@ -199,16 +246,32 @@ public class Statementview extends javax.swing.JFrame {
                           ***************************************************************************************************
                           \t\tBANK STATEMENT
                           ***************************************************************************************************""");
-        txtmybill.setText(txtmybill.getText()+"\n"+" ACCOUNT INFORMATION:"
+        txtmybill.setText(txtmybill.getText()+"\n"+"ACCOUNT INFORMATION:"
                 + "\n"+"ACCOUNT NUMBER:\t"+txtacno.getText()
                 + "\n"+"ACCOUNT HOLDER \t"+txtacname.getText()
                 + "\n"+"ACCOUNT TYPE \t"+txttypac.getText()
                 + "\n"+"STARTED DATE \t"+txtcrtdate.getText()
                 + "\n"+"***************************************************************************************************"
-                + "\n"+"\t\tTRANSACTIONS"
+                + "\n"+"\t\tTRANSACTIONS");
+        ResultSet rss = pt.executeQuery();
+        while(rss.next()) {
+        txtdates.setText(rss.getString(5));
+         txtwitamt.setText(rss.getString(4));
+         txttol.setText(rss.getString(6));
+         txtdpdate.setText(rss.getString(8));
+         txtdpamt.setText(rss.getString(7));
+         txtavamt.setText(rss.getString(3));
+         txtmybill.setText(txtmybill.getText()
+                +"\n"+"AVAILABLE BALANCE"+"\t\t\t\t"+txtavamt.getText()
+                +"\n"+"WITHDREW" +"\t\t"+txtdates.getText()+"\t\t"+txtwitamt.getText()
+                +"\n"+"DEPOSIT"+"\t\t"+txtdpdate.getText()+"\t\t"+txtdpamt.getText()
+                +"\n"+"TOTAL BALANCE" +"\t\t\t"+txttol.getText()
+                +"\n"+"***************************************************************************************************");
+        }
+         txtmybill.setText(txtmybill.getText()
                 + "\n"+"***************************************************************************************************"
-                + "\n"+"TOTAL BALANCE:\t"+txtotal.getText());
-//        txtmybill.setText(txtmybill.getText()+)
+                + "\n"+"TOTAL BALANCE:\t\t\t\t"+txtotal.getText());
+        
             }
     } catch (Exception e) {
         e.printStackTrace();
@@ -216,10 +279,22 @@ public class Statementview extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnloanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloanActionPerformed
-this.setVisible(false);
+        this.setVisible(false);
         Loanview ca= new Loanview();
         ca.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_btnloanActionPerformed
+
+    private void txtdpamtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdpamtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtdpamtActionPerformed
+
+    private void txtwitamtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtwitamtActionPerformed
+        txtwitamt.setVisible(false);
+    }//GEN-LAST:event_txtwitamtActionPerformed
+
+    private void txtavamtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtavamtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtavamtActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -245,9 +320,15 @@ this.setVisible(false);
     private javax.swing.JTextField txtaccno;
     private javax.swing.JTextField txtacname;
     private javax.swing.JTextField txtacno;
+    private javax.swing.JTextField txtavamt;
     private javax.swing.JTextField txtcrtdate;
+    private javax.swing.JTextField txtdates;
+    private javax.swing.JTextField txtdpamt;
+    private javax.swing.JTextField txtdpdate;
     private javax.swing.JTextArea txtmybill;
     private javax.swing.JTextField txtotal;
+    private javax.swing.JTextField txttol;
     private javax.swing.JTextField txttypac;
+    private javax.swing.JTextField txtwitamt;
     // End of variables declaration//GEN-END:variables
 }
