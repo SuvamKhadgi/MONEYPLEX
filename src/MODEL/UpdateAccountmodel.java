@@ -1,25 +1,27 @@
 package MODEL;
 public class UpdateAccountmodel {
-    private String id,fname, mname,lname,address,country,profession,email,typ_acc,dob,int_for,int_per,date,phone,citizen_no,deposit_amt;
+     String id,fname, mname,lname,address,country,profession,email,typ_acc,dob,int_for,int_per,date,phone,citizen_no,deposit_amt;
 
-//    public UpdateAccountmodel(String id, String fname, String mname, String lname, String address, String country, String profession, String email, String typ_acc, String dob, String int_for, String int_per, String date, String phone, String citizen_no, String deposit_amt) {
-//        this.id = id;
-//        this.fname = fname;
-//        this.mname = mname;
-//        this.lname = lname;
-//        this.address = address;
-//        this.country = country;
-//        this.profession = profession;
-//        this.email = email;
-//        this.typ_acc = typ_acc;
-//        this.dob = dob;
-//        this.int_for = int_for;
-//        this.int_per = int_per;
-//        this.date = date;
-//        this.phone = phone;
-//        this.citizen_no = citizen_no;
-//        this.deposit_amt = deposit_amt;
-//    }
+    public UpdateAccountmodel(String id, String fname, String mname, String lname, String address, String country, String profession, String email, String typ_acc, String dob, String int_for, String int_per, String date, String phone, String citizen_no, String deposit_amt) {
+        this.id = id;
+        this.fname = fname;
+        this.mname = mname;
+        this.lname = lname;
+        this.address = address;
+        this.country = country;
+        this.profession = profession;
+        this.email = email;
+        this.typ_acc = typ_acc;
+        this.dob = dob;
+        this.int_for = int_for;
+        this.int_per = int_per;
+        this.date = date;
+        this.phone = phone;
+        this.citizen_no = citizen_no;
+        this.deposit_amt = deposit_amt;
+    }
+    public UpdateAccountmodel() {
+    }
 
      public String getid() {
         return id;

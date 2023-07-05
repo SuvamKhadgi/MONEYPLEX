@@ -1,17 +1,14 @@
 package VIEW;
-import MODEL.*;
-import CONTROLLER.*;
+import MODEL.UpdateAccountmodel;
+import CONTROLLER.UpdateAccountcontroller;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
-import java.sql.*;
-
 public class UpdateAccountview extends javax.swing.JFrame {
-     private UpdateAccountcontroller controller;
-//     UpdateAccountmodel model;
+    UpdateAccountcontroller controller;
+    UpdateAccountmodel model;
     public UpdateAccountview() {
-        controller = new UpdateAccountcontroller();
+        controller = new UpdateAccountcontroller(this);
         initComponents();
         ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Moneyplex Bank.png")));
         Image img1 = myimage.getImage();
@@ -19,11 +16,11 @@ public class UpdateAccountview extends javax.swing.JFrame {
         ImageIcon i = new ImageIcon(img2);
         jLabel1.setIcon(i);
     }
-// public UpdateAccountmodel getMymodel()
-//    {
-//        model=new UpdateAccountmodel(txtac_no.getText(),txtfirstname.getText(),txtmidname.getText(),txtlastname.getText(),txtaddress.getText(),txtcountry.getText(),txtprofession.getText(),txtemail.getText(),txttypacc.getText(),txtdob.getText(),txtintfor.getText(),txtxintper.getText(),txtdate.getText(),txtphoneno.getText(),txtcitizenshipno.getText(),txtdeposite.getText());
-//        return model;
-//    }
+    public UpdateAccountmodel getMymodel()
+    {
+        model=new UpdateAccountmodel(txtac_no.getText(),txtfirstname.getText(),txtmidname.getText(),txtlastname.getText(),txtaddress.getText(),txtcountry.getText(),txtprofession.getText(),txtemail.getText(),txttypacc.getText(),txtdob.getText(),txtintfor.getText(),txtxintper.getText(),txtdate.getText(),txtphoneno.getText(),txtcitizenshipno.getText(),txtdeposite.getText());
+        return model;
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -39,10 +36,10 @@ public class UpdateAccountview extends javax.swing.JFrame {
         btnloan = new javax.swing.JButton();
         btnreport = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btncrt_Acc = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnupdate_acc = new javax.swing.JButton();
+        btnacc_detail = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -163,44 +160,44 @@ public class UpdateAccountview extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(4, 127, 181));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(42, 144, 174));
-        jButton1.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        jButton1.setText("CREATE ACCOUNT");
-        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
-        jButton1.setBorderPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btncrt_Acc.setBackground(new java.awt.Color(42, 144, 174));
+        btncrt_Acc.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        btncrt_Acc.setText("CREATE ACCOUNT");
+        btncrt_Acc.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        btncrt_Acc.setBorderPainted(false);
+        btncrt_Acc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btncrt_AccActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 220, 50));
+        jPanel1.add(btncrt_Acc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 220, 50));
 
         jButton2.setBackground(new java.awt.Color(255, 102, 102));
         jButton2.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jButton2.setText("LOG OUT");
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 110, 40));
 
-        jButton3.setBackground(new java.awt.Color(0, 255, 255));
-        jButton3.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        jButton3.setText("UPDATE ACCOUNT");
-        jButton3.setBorderPainted(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnupdate_acc.setBackground(new java.awt.Color(0, 255, 255));
+        btnupdate_acc.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        btnupdate_acc.setText("UPDATE ACCOUNT");
+        btnupdate_acc.setBorderPainted(false);
+        btnupdate_acc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnupdate_accActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 220, 50));
+        jPanel1.add(btnupdate_acc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 220, 50));
 
-        jButton4.setBackground(new java.awt.Color(42, 144, 174));
-        jButton4.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        jButton4.setText("ACCOUNT DETAILS");
-        jButton4.setBorderPainted(false);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnacc_detail.setBackground(new java.awt.Color(42, 144, 174));
+        btnacc_detail.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        btnacc_detail.setText("ACCOUNT DETAILS");
+        btnacc_detail.setBorderPainted(false);
+        btnacc_detail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnacc_detailActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 220, 50));
+        jPanel1.add(btnacc_detail, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 220, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/accountdetails.jpg"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 110, 100));
@@ -360,21 +357,21 @@ public class UpdateAccountview extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btncustomermgActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnacc_detailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnacc_detailActionPerformed
         this.setVisible(false);
         AccountDetailview ca= new AccountDetailview();
         ca.setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnacc_detailActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnupdate_accActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdate_accActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnupdate_accActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btncrt_AccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncrt_AccActionPerformed
         this.setVisible(false);
         CreateAccountview ca= new CreateAccountview();
         ca.setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btncrt_AccActionPerformed
 
     private void btnintrestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnintrestActionPerformed
         this.setVisible(false);
@@ -398,47 +395,8 @@ public class UpdateAccountview extends javax.swing.JFrame {
     }//GEN-LAST:event_txtphonenoActionPerformed
 
     private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
-         //this done in view only but mvc left
-String accountNumber = txtac_no.getText();
-String url = "jdbc:mysql://localhost:3306/crt_account";
-        String username = "root";
-        String password = "khadgi986";
-try (Connection connection = DriverManager.getConnection(url, username, password)){
-    String idQuery = "SELECT id FROM info WHERE id= ?";
-    PreparedStatement idStatement = connection.prepareStatement(idQuery);
-    idStatement.setString(1, accountNumber);
-    ResultSet idResultSet = idStatement.executeQuery();
-    if (idResultSet.next()) {
-        int id = idResultSet.getInt("id");
-            String query = "UPDATE info SET fname = ?, mname = ?, lname = ?, address = ?, dob = ?, citizenship = ?, nationality = ?, email = ?, phone = ?, profession = ?, typeaccount = ?, intfor = ?, intpercent = ?, crt_date = ?, deposit = ? WHERE id = ?";
-            PreparedStatement statement = connection.prepareStatement(query);
-            statement.setString(1, txtfirstname.getText());
-            statement.setString(2, txtmidname.getText());
-            statement.setString(3, txtlastname.getText());
-            statement.setString(4, txtaddress.getText());
-            statement.setString(5, txtdob.getText());
-            statement.setString(6, txtcitizenshipno.getText());
-            statement.setString(7, txtcountry.getText());
-            statement.setString(8, txtemail.getText());
-            statement.setString(9, txtphoneno.getText());
-            statement.setString(10, txtprofession.getText());
-            statement.setString(11, txttypacc.getText());
-            statement.setString(12, txtintfor.getText());
-            statement.setString(13, txtxintper.getText());
-            statement.setString(14, txtdate.getText());
-            statement.setString(15, txtdeposite.getText());
-            statement.setString(16, txtac_no.getText());
-            int rowsAffected = statement.executeUpdate();
-            if (rowsAffected > 0) {
-                System.out.println("Account updated successfully");
-                JOptionPane.showMessageDialog(null,"Account updated successfully",
-                    "INFORMATION",JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                System.out.println("Failed to update account");
-            }
-        }} catch (SQLException e) {
-            e.printStackTrace();
-        }
+     UpdateAccountcontroller uac =new UpdateAccountcontroller(this);
+     uac.upddata(model);
     }//GEN-LAST:event_btnupdateActionPerformed
 
     private void btnsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearchActionPerformed
@@ -453,7 +411,7 @@ try (Connection connection = DriverManager.getConnection(url, username, password
         ca.setVisible(true);    }//GEN-LAST:event_btntransachistoryActionPerformed
 
     private void btnloanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloanActionPerformed
-this.setVisible(false);
+        this.setVisible(false);
         Loanview ca= new Loanview();
         ca.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_btnloanActionPerformed
@@ -483,6 +441,8 @@ this.setVisible(false);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnacc_detail;
+    private javax.swing.JButton btncrt_Acc;
     private javax.swing.JButton btncustomermg;
     private javax.swing.ButtonGroup btngrpint_for;
     private javax.swing.ButtonGroup btngrptyp_acc;
@@ -494,11 +454,9 @@ this.setVisible(false);
     private javax.swing.JButton btntransachistory;
     private javax.swing.JButton btntransaction;
     private javax.swing.JButton btnupdate;
+    private javax.swing.JButton btnupdate_acc;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
