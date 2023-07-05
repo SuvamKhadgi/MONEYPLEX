@@ -237,7 +237,7 @@ public class Moreview extends javax.swing.JFrame {
     }//GEN-LAST:event_btnloanActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-                this.setVisible(false);
+        this.setVisible(false);
         LoginView ca= new LoginView();
         ca.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed

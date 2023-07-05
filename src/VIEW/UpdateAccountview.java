@@ -175,6 +175,11 @@ public class UpdateAccountview extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(255, 102, 102));
         jButton2.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jButton2.setText("LOG OUT");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 110, 40));
 
         btnupdate_acc.setBackground(new java.awt.Color(0, 255, 255));
@@ -415,6 +420,12 @@ public class UpdateAccountview extends javax.swing.JFrame {
         Loanview ca= new Loanview();
         ca.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_btnloanActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+this.setVisible(false);
+        LoginView ca= new LoginView();
+        ca.setVisible(true);         // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
     private void displayAccount(UpdateAccountmodel account) {
         txtfirstname.setText(account.getFname());
         txtmidname.setText(account.getMname());

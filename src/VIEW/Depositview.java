@@ -179,6 +179,11 @@ Depositmodel model;
         jButton2.setBackground(new java.awt.Color(255, 102, 102));
         jButton2.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jButton2.setText("LOG OUT");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 110, 40));
 
         jButton3.setBackground(new java.awt.Color(42, 144, 174));
@@ -429,6 +434,12 @@ Depositmodel model;
     private void txttotalbalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttotalbalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txttotalbalActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+this.setVisible(false);
+        LoginView ca= new LoginView();
+        ca.setVisible(true);         // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
