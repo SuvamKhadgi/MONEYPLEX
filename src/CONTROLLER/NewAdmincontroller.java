@@ -50,7 +50,7 @@ public boolean checkMyData(NewAdminmodel mymodel1) {
         pst = conn.prepareStatement(sql);
         pst.setString(1, mymodel1.getFname());
         pst.setString(2, mymodel1.getLname());
-        pst.setInt(3, mymodel1.getPhone());
+        pst.setString(3, mymodel1.getPhone());
         pst.setString(4, mymodel1.getEmail());
         pst.setString(5, mymodel1.getPassword());
         pst.executeUpdate();

@@ -2,7 +2,7 @@ package MODEL;
 
 public class NewAdminmodel {
 
-    public NewAdminmodel( int phone, String fname, String lname, String email, String password) {
+    public NewAdminmodel( String phone, String fname, String lname, String email, String password) {
         this.id = id;
         this.phone = phone;
         this.fname = fname;
@@ -19,11 +19,11 @@ public class NewAdminmodel {
         this.id = id;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -58,7 +58,7 @@ public class NewAdminmodel {
     public void setPassword(String password) {
         this.password = password;
     }
-int id, phone;
-     String fname,lname,email,password;
+int id;
+     String phone,fname,lname,email,password;
 
 }

@@ -3,10 +3,10 @@ package MODEL;
 public class CreateAccountmodel {
 
    
-    String fname, mname,lname,address,country,profession,email,typ_acc,dob,int_for,int_per,date;
-    int phone,citizen_no,deposit_amt;
+    String fname, mname,lname,address,country,profession,email,typ_acc,dob,int_for,int_per,date,phone;
+    int citizen_no,deposit_amt;
 
-    public CreateAccountmodel(String fname, String mname, String lname, String address, String country, String profession, String email, String typ_acc, String dob, String int_for, String int_per, String date, int phone, int citizen_no, int deposit_amt) {
+    public CreateAccountmodel(String fname, String mname, String lname, String address, String country, String profession, String email, String typ_acc, String dob, String int_for, String int_per, String date,String phone, int citizen_no, int deposit_amt) {
         this.fname = fname;
         this.mname = mname;
         this.lname = lname;
@@ -120,11 +120,11 @@ public class CreateAccountmodel {
         this.date = date;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

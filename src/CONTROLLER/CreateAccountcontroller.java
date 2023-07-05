@@ -55,7 +55,7 @@ public boolean checkMyData(CreateAccountmodel mymodel) {
         pst.setInt(6, mymodel.getCitizen_no());
         pst.setString(7, mymodel.getCountry());
         pst.setString(8, mymodel.getEmail());
-        pst.setInt(9, mymodel.getPhone());
+        pst.setString(9, mymodel.getPhone());
         pst.setString(10, mymodel.getProfession());
         pst.setString(11, mymodel.getTyp_acc());
         pst.setString(12, mymodel.getInt_for());

@@ -186,7 +186,7 @@ public class NewAdminview extends javax.swing.JFrame {
 
     public NewAdminmodel getMymodel()
     {
-        model1=new NewAdminmodel(Integer.parseInt(txtephone.getText()),txtefname.getText(),txtelname.getText(),txteemail.getText(),txtepassword.getText());
+        model1=new NewAdminmodel(txtephone.getText(),txtefname.getText(),txtelname.getText(),txteemail.getText(),txtepassword.getText());
         return model1;
     }
      public void showMessage(String msg)

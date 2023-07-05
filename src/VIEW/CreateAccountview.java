@@ -1,8 +1,7 @@
 package VIEW;
-import MODEL.*;
+
 import CONTROLLER.*;
 import MODEL.CreateAccountmodel;
-import java.awt.event.ActionEvent;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
@@ -24,22 +23,23 @@ public class CreateAccountview extends javax.swing.JFrame {
         String formattedDate = today.format(formatter);
         txtdate.setText(formattedDate);
     }
-public void actionPerformed(ActionEvent evt) {
-        if (evt.getSource() == rb_fixacc) {
-            enableInterestRateRadioButtons();
-        } else if (evt.getSource() == rb_crtacc) {
-            disableInterestRateRadioButtons();
-        }
-    }
 private void enableInterestRateRadioButtons() {
         rb_5int.setEnabled(true);
         rb_10int.setEnabled(true);
         rb_13int.setEnabled(true);
+        rb_1year.setEnabled(true);
+        rb_3m.setEnabled(true);
+        tb_6m.setEnabled(true);
     }
 private void disableInterestRateRadioButtons() {
         rb_5int.setEnabled(false);
         rb_10int.setEnabled(false);
         rb_13int.setEnabled(false);
+        rb_1year.setEnabled(false);
+        rb_3m.setEnabled(false);
+        tb_6m.setEnabled(false);
+        
+        
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -441,7 +441,7 @@ private void disableInterestRateRadioButtons() {
     public CreateAccountmodel getMymodel()
     {
         model=new CreateAccountmodel(txtfirstname.getText(),txtmidname.getText(),txtlastname.getText(),
-       txtaddress.getText(),((txtnationality.getSelectedItem()).toString()),txtprofession.getText(),txtemail.getText(),type_acc,txtdob.getText(),int_for,int_per,txtdate.getText(),(Integer.parseInt(txtphoneno.getText())),(Integer.parseInt(txtcitizenshipno.getText())),(Integer.parseInt(txtdeposite.getText())));
+       txtaddress.getText(),((txtnationality.getSelectedItem()).toString()),txtprofession.getText(),txtemail.getText(),type_acc,txtdob.getText(),int_for,int_per,txtdate.getText(),txtphoneno.getText(),(Integer.parseInt(txtcitizenshipno.getText())),(Integer.parseInt(txtdeposite.getText())));
         return model;
     }
      public void showMessage(String msg)
@@ -487,15 +487,21 @@ private void disableInterestRateRadioButtons() {
     }//GEN-LAST:event_txtphonenoActionPerformed
 
     private void rb_crtaccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_crtaccActionPerformed
-        type_acc="current account"; // TODO add your handling code here:
+        type_acc="current account"; 
+disableInterestRateRadioButtons();// TODO add your handling code here:
     }//GEN-LAST:event_rb_crtaccActionPerformed
 
     private void rb_fixaccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_fixaccActionPerformed
-        type_acc="fixed account";        // TODO add your handling code here:
+        type_acc="fixed account"; 
+        enableInterestRateRadioButtons();
     }//GEN-LAST:event_rb_fixaccActionPerformed
 
     private void rb_savaccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_savaccActionPerformed
-        type_acc="saving account";        // TODO add your handling code here:
+        type_acc="saving account"; 
+                enableInterestRateRadioButtons();
+        rb_10int.setEnabled(false);
+        rb_13int.setEnabled(false);
+        
     }//GEN-LAST:event_rb_savaccActionPerformed
 
     private void rb_3mActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_3mActionPerformed
