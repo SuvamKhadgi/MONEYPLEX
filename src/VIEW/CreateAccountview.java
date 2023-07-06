@@ -538,6 +538,9 @@ disableInterestRateRadioButtons();// TODO add your handling code here:
         int_per="13";        // TODO add your handling code here:
     }//GEN-LAST:event_rb_13intActionPerformed
 
+    public void addRegisterListener(ActionListener listener) {
+        btncreate.addActionListener(listener);
+    }
     private void btncreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncreateActionPerformed
     CreateAccountcontroller cac= new CreateAccountcontroller(this);
     }//GEN-LAST:event_btncreateActionPerformed
