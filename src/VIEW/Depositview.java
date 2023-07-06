@@ -395,7 +395,7 @@ Depositmodel model;
 
     private void btnsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearchActionPerformed
         Depositcontroller cac= new Depositcontroller(this);
-        cac.chkdata(model);
+        cac.chkData(model);
          txtcustomerN.setText(model.getName());
          txtavailableA.setText(model.getAva_amt());
     }//GEN-LAST:event_btnsearchActionPerformed
@@ -424,7 +424,7 @@ Depositmodel model;
         txttotalbal.setText(String.valueOf(newAmount));
             Depositcontroller cac= new Depositcontroller(this);
             cac.checkMyData(model);
-            cac.checkdata(model);
+            cac.checkData(model);
         }else{
           JOptionPane.showMessageDialog(null, "PLEASE CONFIRM THE DEPOSIT FIRST","CONFIRMATION REQUEST",JOptionPane.WARNING_MESSAGE);
 
