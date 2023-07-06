@@ -46,6 +46,11 @@ public class Statementview extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtaccno = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtacno = new javax.swing.JTextField();
         txtacname = new javax.swing.JTextField();
@@ -124,6 +129,11 @@ public class Statementview extends javax.swing.JFrame {
         btnreport.setBackground(new java.awt.Color(42, 144, 174));
         btnreport.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         btnreport.setText("MORE...");
+        btnreport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnreportActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnreport, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 130, 150, 50));
 
         txtmybill.setColumns(20);
@@ -156,6 +166,41 @@ public class Statementview extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 200, 100, 30));
+
+        jPanel1.setBackground(new java.awt.Color(4, 127, 181));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton3.setBackground(new java.awt.Color(0, 255, 255));
+        jButton3.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        jButton3.setText("GENERATE STATEMENT");
+        jButton3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        jButton3.setBorderPainted(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 220, 50));
+
+        jButton4.setBackground(new java.awt.Color(255, 102, 102));
+        jButton4.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jButton4.setText("LOG OUT");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 110, 40));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/state.png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 110, 100));
+
+        jLabel4.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabel4.setText("STATEMENT");
+        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 130, 40));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 220, 460));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 650));
         getContentPane().add(txtacno, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, -1, -1));
         getContentPane().add(txtacname, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 550, -1, -1));
@@ -296,6 +341,22 @@ public class Statementview extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtavamtActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        this.setVisible(false);
+        LoginView ca= new LoginView();
+        ca.setVisible(true);         // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void btnreportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreportActionPerformed
+        this.setVisible(false);
+        Moreview ca= new Moreview();
+        ca.setVisible(true);         // TODO add your handling code here:
+    }//GEN-LAST:event_btnreportActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -314,8 +375,13 @@ public class Statementview extends javax.swing.JFrame {
     private javax.swing.JButton btntransaction;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtaccno;
     private javax.swing.JTextField txtacname;

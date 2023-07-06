@@ -163,6 +163,11 @@ public class AccountDetailview extends javax.swing.JFrame {
         jButton1.setText("CREATE ACCOUNT");
         jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         jButton1.setBorderPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 220, 50));
 
         jButton2.setBackground(new java.awt.Color(255, 102, 102));
@@ -397,7 +402,9 @@ this.setVisible(false);
     }//GEN-LAST:event_btnloanActionPerformed
 
     private void btnreportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreportActionPerformed
-        // TODO add your handling code here:
+this.setVisible(false);
+        Moreview ca= new Moreview();
+        ca.setVisible(true);         // TODO add your handling code here:
     }//GEN-LAST:event_btnreportActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -405,6 +412,12 @@ this.setVisible(false);
         LoginView ca= new LoginView();
         ca.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+this.setVisible(false);
+        CreateAccountview ca= new CreateAccountview();
+        ca.setVisible(true);         // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 private void displayAccount(AccountDetailmodel account) {
         txtfirstname.setText(account.getFname());
         txtmidname.setText(account.getMname());

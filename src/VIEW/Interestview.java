@@ -137,6 +137,11 @@ Interestmodel model;
         btnreport.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         btnreport.setText("MORE...");
         btnreport.setBorderPainted(false);
+        btnreport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnreportActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnreport, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 130, 150, 50));
 
         jPanel1.setBackground(new java.awt.Color(4, 127, 181));
@@ -159,7 +164,7 @@ Interestmodel model;
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 110, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/accountdetails.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGE/intra.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 110, 100));
 
         jLabel3.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
@@ -377,10 +382,16 @@ Interestmodel model;
     }//GEN-LAST:event_btnupdateActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-this.setVisible(false);
+        this.setVisible(false);
         LoginView ca= new LoginView();
         ca.setVisible(true);         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnreportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreportActionPerformed
+        this.setVisible(false);
+        Moreview ca= new Moreview();
+        ca.setVisible(true); // TODO add your handling code here:
+    }//GEN-LAST:event_btnreportActionPerformed
 
     private void displayAccount(Interestmodel account) {
         txtac_name.setText(account.getAc_name());

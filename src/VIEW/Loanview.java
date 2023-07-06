@@ -109,6 +109,11 @@ String Account;
         btntransachistory.setBackground(new java.awt.Color(42, 144, 174));
         btntransachistory.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         btntransachistory.setText("STATEMENT");
+        btntransachistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntransachistoryActionPerformed(evt);
+            }
+        });
         getContentPane().add(btntransachistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, 150, 50));
 
         btnintrest.setBackground(new java.awt.Color(42, 144, 174));
@@ -129,6 +134,11 @@ String Account;
         btnreport.setBackground(new java.awt.Color(42, 144, 174));
         btnreport.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         btnreport.setText("MORE...");
+        btnreport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnreportActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnreport, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 130, 150, 50));
 
         jPanel2.setBackground(new java.awt.Color(153, 255, 255));
@@ -298,7 +308,9 @@ this.setVisible(false);
     }//GEN-LAST:event_btncustomermgActionPerformed
 
     private void btnintrestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnintrestActionPerformed
-        // TODO add your handling code here:
+this.setVisible(false);
+        Interestview ca= new Interestview();
+        ca.setVisible(true);         // TODO add your handling code here:
     }//GEN-LAST:event_btnintrestActionPerformed
 
     private void txtmthpaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmthpaymentActionPerformed
@@ -399,6 +411,18 @@ this.setVisible(false);
         txtmthpayment.setText("");
         jLoanReport.setText("");
     }//GEN-LAST:event_btnresetActionPerformed
+
+    private void btntransachistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntransachistoryActionPerformed
+this.setVisible(false);
+        Statementview ca= new Statementview();
+        ca.setVisible(true);         // TODO add your handling code here:
+    }//GEN-LAST:event_btntransachistoryActionPerformed
+
+    private void btnreportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreportActionPerformed
+this.setVisible(false);
+        Moreview ca= new Moreview();
+        ca.setVisible(true);         // TODO add your handling code here:
+    }//GEN-LAST:event_btnreportActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
