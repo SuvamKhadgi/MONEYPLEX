@@ -1,10 +1,13 @@
 package VIEW;
-import MODEL.CreateAccountmodel;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
-public class Moreview extends javax.swing.JFrame {
-    public Moreview() {
+import java.text.DecimalFormat;
+public class Currencyconvertview extends javax.swing.JFrame {
+    private DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+     private final String[] currencies = {"USD", "EUR", "JPY", "GBP", "CAD", "AUD", "CHF", "CNY","INR","NEP"};
+    private double[] exchangeRates = {1.00, 0.84, 109.65, 0.72, 1.27, 1.30, 0.92, 6.47,87.14,130};
+    public Currencyconvertview() {
         initComponents();
         ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Moneyplex Bank.png")));
         Image img1 = myimage.getImage();
@@ -34,8 +37,19 @@ public class Moreview extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btndltacc = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        amountField = new javax.swing.JTextField();
+        toComboBox = new javax.swing.JComboBox<>();
+        fromComboBox = new javax.swing.JComboBox<>();
+        btnconvert = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        resultLabel = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -119,7 +133,7 @@ public class Moreview extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(4, 127, 181));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btncrnconv.setBackground(new java.awt.Color(42, 144, 174));
+        btncrnconv.setBackground(new java.awt.Color(0, 255, 255));
         btncrnconv.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
         btncrnconv.setText("CURRENCY CONVERSION");
         btncrnconv.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
@@ -141,7 +155,7 @@ public class Moreview extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 110, 40));
 
-        btnabtus.setBackground(new java.awt.Color(0, 255, 255));
+        btnabtus.setBackground(new java.awt.Color(42, 144, 174));
         btnabtus.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         btnabtus.setText("ABOUT US");
         btnabtus.setBorderPainted(false);
@@ -174,16 +188,76 @@ public class Moreview extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 220, 460));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Welcome to MoneyPlex!\n\nAbout Us:\n\nMoneyPlex is a trusted financial institution with a rich history of providing excellent banking services to our valued customers.\nEstablished in 2023, we haveconsistently strived to meet the evolving needs of individuals and businesses in the banking industry.\n\nOur Misson:\n\nAt MoneyPlex, our mission is to empower bank managers with efficient tools and technologies to streamline operations, enhance customer experience,\n and drive overall growth and profitability. We aim to be at the forefront of banking innovation, delivering reliable and secure solutions that align with \nthe ever-changing landscape of the financial sector.\n\nOur Values:\n\nIntegrity, Trust, and Customer Focus are the pillars that underpin our organization's values. We believe in conducting our business ethically, ensuring \ntransparency in all our operations, and prioritizing the needs and satisfaction of our customers. By adhering to these values, we foster strong relationships built on trust and \ndeliver exceptional service to our clients.\n\nContact Us:\n\nWe are here to support you every step of the way. If you have any questions, feedback, or require assistance, please don't hesitate to reach out to our dedicated\n support team. You can contact us via phone at 9840922949, email us at moneyplex2023@gmail.com.\n\nThank you for choosing MoneyPlex. We look forward to partnering with you to drive efficiency, productivity, and success in your banking operations.\nFeel free to customize the content to align with your specific bank's identity, values, and services.\n\n\n\n");
-        jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane2.setViewportView(jTextArea1);
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 860, 460));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel4.setText("CURRENCY CONVERTER");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, -1));
 
-        jLabel1.setText("ggg");
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 860, 60));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabel9.setText("CONVERT CURRENCY FROM:");
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabel10.setText("CONVERT CURRENCY  TO:");
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+
+        amountField.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        amountField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
+        jPanel4.add(amountField, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 180, 30));
+
+        toComboBox.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        toComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(currencies));
+        toComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
+        jPanel4.add(toComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 180, -1));
+
+        fromComboBox.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        fromComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(currencies));
+        fromComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
+        jPanel4.add(fromComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, 180, -1));
+
+        btnconvert.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        btnconvert.setText("CONVERT");
+        btnconvert.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        btnconvert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnconvertActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnconvert, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 90, -1));
+
+        jLabel11.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabel11.setText("AMOUNT:");
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 860, 300));
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        resultLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        resultLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
+        resultLabel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resultLabelActionPerformed(evt);
+            }
+        });
+        jPanel5.add(resultLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 180, 40));
+
+        jLabel8.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabel8.setText("CONVERTED AMOUNT:");
+        jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 40));
+
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 560, 860, 80));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 640));
 
         pack();
@@ -209,6 +283,9 @@ public class Moreview extends javax.swing.JFrame {
     }//GEN-LAST:event_btncustomermgActionPerformed
 
     private void btnabtusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnabtusActionPerformed
+        this.setVisible(false);
+        Moreview ca= new Moreview();
+        ca.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_btnabtusActionPerformed
 
@@ -232,7 +309,7 @@ public class Moreview extends javax.swing.JFrame {
 
     private void btnloanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloanActionPerformed
         this.setVisible(false);
-        Interestview ca= new Interestview();
+        Loanview ca= new Loanview();
         ca.setVisible(true);
     }//GEN-LAST:event_btnloanActionPerformed
 
@@ -242,16 +319,42 @@ public class Moreview extends javax.swing.JFrame {
         ca.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void btnconvertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconvertActionPerformed
+       try {
+                    double amount = Double.parseDouble(amountField.getText());
+                    String fromCurrency = (String) fromComboBox.getSelectedItem();
+                    String toCurrency = (String) toComboBox.getSelectedItem();
+                    double exchangeRate = exchangeRates[getIndex(toCurrency)] / exchangeRates[getIndex(fromCurrency)];
+                    double result = amount * exchangeRate;
+                    resultLabel.setText(decimalFormat.format(result) + " " + toCurrency);
+                } catch (Exception ex) {
+                    resultLabel.setText("Invalid input");
+                }
+    }//GEN-LAST:event_btnconvertActionPerformed
+
+    private void resultLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultLabelActionPerformed
+    resultLabel.setEditable(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_resultLabelActionPerformed
+     private int getIndex(String currency) {
+        for (int i = 0; i < currencies.length; i++) {
+            if (currency.equals(currencies[i])) {
+                return i;
+            }
+        }
+        return -1;
+    }
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Moreview().setVisible(true);
+                new Currencyconvertview().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField amountField;
     private javax.swing.JButton btnabtus;
+    private javax.swing.JButton btnconvert;
     private javax.swing.JButton btncrnconv;
     private javax.swing.JButton btncustomermg;
     private javax.swing.JButton btndltacc;
@@ -264,13 +367,22 @@ public class Moreview extends javax.swing.JFrame {
     private javax.swing.JButton btntransachistory;
     private javax.swing.JButton btntransaction;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> fromComboBox;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JTextField resultLabel;
+    private javax.swing.JComboBox<String> toComboBox;
     // End of variables declaration//GEN-END:variables
 private String type_acc;
 private String int_for;
