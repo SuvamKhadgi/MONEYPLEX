@@ -4,6 +4,7 @@ import MODEL.CreateAccountmodel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class CreateAccountDao {
     public boolean insertAccount(CreateAccountmodel mymodel) {
@@ -30,6 +31,7 @@ public class CreateAccountDao {
             pst.setString(14, mymodel.getDate());
             pst.setInt(15, mymodel.getDeposit_amt());
             pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Account Created successfully", "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
             System.out.println("Data inserted");
             return true;
         } catch (Exception e2) {

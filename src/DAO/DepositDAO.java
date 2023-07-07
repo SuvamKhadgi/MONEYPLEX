@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class DepositDAO {
     private PreparedStatement pst = null;
@@ -70,8 +71,10 @@ public class DepositDAO {
                 int rowsAffected = statement.executeUpdate();
 
                 if (rowsAffected > 0) {
+                    JOptionPane.showMessageDialog(null, "AMOUNT DEPOSITED", "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
                     System.out.println("Account updated successfully");
                 } else {
+                    JOptionPane.showMessageDialog(null, "SORRY! FAILED TO DEPOSIT", "FAILED", JOptionPane.ERROR_MESSAGE);
                     System.out.println("Failed to update account");
                 }
             }

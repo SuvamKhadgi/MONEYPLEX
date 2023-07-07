@@ -176,12 +176,15 @@ public class FundTransferDAO {
                         JOptionPane.showMessageDialog(null, "Transfer successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
                         return true;
                     } else {
+                        JOptionPane.showMessageDialog(null, "recipient has insufficient deposit.", "FAILED", JOptionPane.ERROR_MESSAGE);
                         System.out.println("Recipient has insufficient deposit.");
                     }
                 } else {
+                    JOptionPane.showMessageDialog(null, "Recipient account not found.", "FAILED", JOptionPane.ERROR_MESSAGE);
                     System.out.println("Recipient account not found.");
                 }
             } else {
+                JOptionPane.showMessageDialog(null, "Sender has insufficient funds!", "FAILED", JOptionPane.ERROR_MESSAGE);
                 System.out.println("Sender has insufficient funds.");
             }
         } catch (SQLException e) {

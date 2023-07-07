@@ -217,7 +217,9 @@ public class Moreview extends javax.swing.JFrame {
     }//GEN-LAST:event_btncrnconvActionPerformed
 
     private void btndltaccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndltaccActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        DeleteAccountview ca= new DeleteAccountview();
+        ca.setVisible(true); // TODO add your handling code here:
     }//GEN-LAST:event_btndltaccActionPerformed
 
     private void btntransachistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntransachistoryActionPerformed

@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class InterestDAO {
     private static final String DB_URL = "jdbc:mysql://localhost:3306/crt_account";
@@ -48,8 +49,10 @@ public class InterestDAO {
             int rowsAffected = statement.executeUpdate();
 
             if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(null, "Account updated successfully", "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
                 System.out.println("Account updated successfully");
             } else {
+                JOptionPane.showMessageDialog(null, "Failed to update account", "FAILED", JOptionPane.ERROR_MESSAGE);
                 System.out.println("Failed to update account");
             }
         } catch (SQLException e) {

@@ -157,6 +157,11 @@ Withdrawmodel model;
         btnreport.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         btnreport.setText("MORE...");
         btnreport.setBorderPainted(false);
+        btnreport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnreportActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnreport, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 130, 150, 50));
 
         jPanel1.setBackground(new java.awt.Color(4, 127, 181));
@@ -448,6 +453,12 @@ this.setVisible(false);
         LoginView ca= new LoginView();
         ca.setVisible(true);         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnreportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreportActionPerformed
+       this.setVisible(false);
+        Moreview ca= new Moreview();
+        ca.setVisible(true); // TODO add your handling code here:
+    }//GEN-LAST:event_btnreportActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
