@@ -543,7 +543,7 @@
               <StringArray count="3">
                 <StringItem index="0" value="3 months"/>
                 <StringItem index="1" value="6 months"/>
-                <StringItem index="2" value="1year"/>
+                <StringItem index="2" value="1 year"/>
               </StringArray>
             </Property>
           </Properties>

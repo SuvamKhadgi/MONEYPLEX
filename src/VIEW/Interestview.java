@@ -4,9 +4,11 @@ import MODEL.Interestmodel;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import javax.swing.JTextField;
 public class Interestview extends javax.swing.JFrame {
 Interestcontroller controller;
 Interestmodel model;
+//private JTextField txtac_no;
     public Interestview() {
         controller = new Interestcontroller(this);
         initComponents();
@@ -15,6 +17,7 @@ Interestmodel model;
         Image img2 = img1.getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon i = new ImageIcon(img2);
         jLabel1.setIcon(i); 
+//        txtac_no = new JTextField();
     }
     public Interestmodel getMymodel(){
         model=new Interestmodel(txtac_no.getText(),txtac_name.getText(),txtac_phone.getText(),txttol_balance.getText(),txtcrtdate.getText(),txttyp_ac.getText(),txttimep.getText(),txtintrate.getText());
@@ -284,7 +287,7 @@ Interestmodel model;
         });
         jPanel2.add(btncalculate, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 380, 120, 30));
 
-        timePeriodComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 months", "6 months", "1year" }));
+        timePeriodComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 months", "6 months", "1 year" }));
         jPanel2.add(timePeriodComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 160, 30));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 860, 460));
