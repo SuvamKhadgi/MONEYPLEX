@@ -360,13 +360,11 @@ this.setVisible(false);
     }//GEN-LAST:event_btncurrencyActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-     JOptionPane.showMessageDialog(null, "DO YOU CONFIRM TO DELETE ACCOUNT", "", JOptionPane.OK_CANCEL_OPTION);
-     if(JOptionPane.OK_CANCEL_OPTION==1){ 
+     
+     if(JOptionPane.showConfirmDialog(null, "DO YOU CONFIRM TO DELETE ACCOUNT", "", JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION){ 
      DeleteAccountcontroller dac= new DeleteAccountcontroller(this);
       dac.deletdata(model);}
-     else{
-         
-     }
+     
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

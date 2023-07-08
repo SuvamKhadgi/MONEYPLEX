@@ -21,7 +21,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/Realproject/src/VIEW/DeleteAccountview.java</file>
+            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/Realproject/src/CONTROLLER/DeleteAccountcontroller.java</file>
+            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/Realproject/src/MODEL/DeleteAccountmodel.java</file>
             <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/Realproject/src/CONTROLLER/CreateAccountcontroller.java</file>
+            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/Realproject/src/VIEW/DashBoardview.java</file>
             <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/Realproject/src/DAO/CreateAccountDao.java</file>
         </group>
     </open-files>
