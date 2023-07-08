@@ -8,6 +8,7 @@ import MODEL.*;
 import CONTROLLER.*;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import junit.framework.Assert;
 public class LoginView extends javax.swing.JFrame {
     loginmodel model;
     public LoginView() {
@@ -17,6 +18,8 @@ public class LoginView extends javax.swing.JFrame {
         Image img2=img1.getScaledInstance(jLabel1.getWidth(),jLabel1.getHeight(),Image.SCALE_SMOOTH);
         ImageIcon i = new ImageIcon(img2);
         jLabel1.setIcon(i);
+        msgbox.setEditable(false);
+        msgbox2.setEnabled(false);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -33,7 +36,6 @@ public class LoginView extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         btnlogin = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jTextArea = new javax.swing.JScrollPane();
         msgbox = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -132,9 +134,6 @@ public class LoginView extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VIEW/LOGIN.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 550));
 
-        jLabel5.setText("jLabel5");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 346, 30, 50));
-
         msgbox.setColumns(20);
         msgbox.setRows(5);
         jTextArea.setViewportView(msgbox);
@@ -150,13 +149,22 @@ public class LoginView extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    private void validatation(){
+        if(txtusername.getText().length()==0){ 
+            JOptionPane.showMessageDialog(this,"PLEASE ENTER VALID USERNAME","SORRY",JOptionPane.ERROR_MESSAGE);
+        }
+        if(txtpassword.getText().length()==0){ 
+            JOptionPane.showMessageDialog(this,"PLEASE CORRECT PASSWORD","SORRY",JOptionPane.ERROR_MESSAGE);
+        }
+    }
     private void txtusernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusernameActionPerformed
         // TODO add your handling code here:
+        
+        Assert.assertEquals(false,txtusername.getText().length()==0);
     }//GEN-LAST:event_txtusernameActionPerformed
 
     private void txtpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpasswordActionPerformed
-        // TODO add your handling code here:
+        Assert.assertEquals(false,txtpassword.getText().length()==0);
     }//GEN-LAST:event_txtpasswordActionPerformed
 
     public loginmodel getMymodel()
@@ -169,7 +177,8 @@ public class LoginView extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this,msg,"SORRY",JOptionPane.ERROR_MESSAGE);
     }
     private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
-       if(txtprivacy_policy.isSelected()&&txtterms_conditions.isSelected()){   
+      validatation();
+        if(txtprivacy_policy.isSelected()&&txtterms_conditions.isSelected()){   
            logincontroller l=new logincontroller(this);
         }
         else{
@@ -255,7 +264,6 @@ public class LoginView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jTextArea;

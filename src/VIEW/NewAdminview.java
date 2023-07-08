@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 import MODEL.*;
 import CONTROLLER.*;
 import java.awt.event.ActionListener;
+import org.junit.Assert;
 public class NewAdminview extends javax.swing.JFrame {
     NewAdminmodel model1;
     public NewAdminview() {
@@ -24,6 +25,23 @@ public class NewAdminview extends javax.swing.JFrame {
         addPlaceholderstyle(txtephone);
         addPlaceholderstyle(txteemail);
         addPlaceholderstyle(txtepassword); 
+    }
+    public void validation(){
+         if(txteemail.getText().length()==0){ 
+            JOptionPane.showMessageDialog(this,"PLEASE ENTER VALID EMAIL","SORRY",JOptionPane.ERROR_MESSAGE);
+        }
+          if(txtefname.getText().length()==0){ 
+            JOptionPane.showMessageDialog(this,"PLEASE ENTER FIRST NAME","SORRY",JOptionPane.ERROR_MESSAGE);
+        }
+           if(txtelname.getText().length()==0){ 
+            JOptionPane.showMessageDialog(this,"PLEASE ENTER LAST NAME","SORRY",JOptionPane.ERROR_MESSAGE);
+        }
+            if(txtepassword.getText().length()==0){ 
+            JOptionPane.showMessageDialog(this,"PLEASE ENTER PASSWORD","SORRY",JOptionPane.ERROR_MESSAGE);
+        }
+             if(txtephone.getText().length()==0){ 
+            JOptionPane.showMessageDialog(this,"PLEASE ENTER VALID PHONE NO","SORRY",JOptionPane.ERROR_MESSAGE);
+        }
     }
     public void addPlaceholderstyle (JTextField textField) { 
      Font font =textField.getFont();
@@ -46,18 +64,22 @@ public class NewAdminview extends javax.swing.JFrame {
         txtephone = new javax.swing.JTextField();
         txteemail = new javax.swing.JTextField();
         txtepassword = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         btnregister = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("NEW ADMIN REGISTER");
-        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtefname.setBackground(new java.awt.Color(223, 224, 229));
         txtefname.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtefname.setText("FIRST NAME");
         txtefname.setBorder(null);
@@ -76,7 +98,6 @@ public class NewAdminview extends javax.swing.JFrame {
         });
         getContentPane().add(txtefname, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 120, 30));
 
-        txtelname.setBackground(new java.awt.Color(223, 224, 229));
         txtelname.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtelname.setText("LAST NAME");
         txtelname.setBorder(null);
@@ -88,9 +109,13 @@ public class NewAdminview extends javax.swing.JFrame {
                 txtelnameFocusLost(evt);
             }
         });
+        txtelname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtelnameActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtelname, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 120, 30));
 
-        txtephone.setBackground(new java.awt.Color(223, 224, 229));
         txtephone.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtephone.setText("PHONE NO");
         txtephone.setBorder(null);
@@ -109,7 +134,6 @@ public class NewAdminview extends javax.swing.JFrame {
         });
         getContentPane().add(txtephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 222, 250, 30));
 
-        txteemail.setBackground(new java.awt.Color(223, 224, 229));
         txteemail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txteemail.setText("E-MAIL ADDRESS");
         txteemail.setBorder(null);
@@ -121,9 +145,13 @@ public class NewAdminview extends javax.swing.JFrame {
                 txteemailFocusLost(evt);
             }
         });
+        txteemail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txteemailActionPerformed(evt);
+            }
+        });
         getContentPane().add(txteemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 275, 250, 30));
 
-        txtepassword.setBackground(new java.awt.Color(223, 224, 229));
         txtepassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtepassword.setText("PASSWORD");
         txtepassword.setBorder(null);
@@ -135,7 +163,32 @@ public class NewAdminview extends javax.swing.JFrame {
                 txtepasswordFocusLost(evt);
             }
         });
+        txtepassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtepasswordActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtepassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 250, 30));
+
+        jLabel9.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jLabel9.setText("PASSWORD");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jLabel8.setText("E-MAIL");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 80, 30));
+
+        jLabel7.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jLabel7.setText("PHONE NUMBER");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, 130, 20));
+
+        jLabel6.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jLabel6.setText("LAST NAME");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        jLabel5.setText("FIRST NAME");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, -1, -1));
 
         btnregister.setBackground(new java.awt.Color(223, 224, 229));
         btnregister.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -163,14 +216,17 @@ public class NewAdminview extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 440, 160, 30));
 
+        jLabel4.setText("NOTE:YOUR PHONE NO WILL BE YOUR USERNAME");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, 320, 20));
+
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(153, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(0, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("REGISTRATION");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 265, 50));
+        jLabel2.setText("REGISTRATION FORM");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 320, 50));
 
-        jLabel3.setBackground(new java.awt.Color(12, 103, 130));
+        jLabel3.setBackground(new java.awt.Color(42, 144, 174));
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jLabel3.setOpaque(true);
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 360, 480));
@@ -181,7 +237,7 @@ public class NewAdminview extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtephoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtephoneActionPerformed
-        // TODO add your handling code here:
+       // TODO add your handling code here:
     }//GEN-LAST:event_txtephoneActionPerformed
 
     public NewAdminmodel getMymodel()
@@ -198,7 +254,8 @@ public class NewAdminview extends javax.swing.JFrame {
     btnregister.addActionListener(log);
 }
     private void btnregisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregisterActionPerformed
-    NewAdmincontroller na= new NewAdmincontroller(this);
+        validation();
+        NewAdmincontroller na= new NewAdmincontroller(this);
     }//GEN-LAST:event_btnregisterActionPerformed
 
     private void txtefnameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtefnameFocusGained
@@ -207,7 +264,7 @@ public class NewAdminview extends javax.swing.JFrame {
            txtefname.requestFocus();
            //remove placeholder style
            removePlaceholderStyle(txtefname);
-       }
+          }
     }//GEN-LAST:event_txtefnameFocusGained
 
     private void txtelnameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtelnameFocusGained
@@ -247,7 +304,7 @@ public class NewAdminview extends javax.swing.JFrame {
     }//GEN-LAST:event_txtepasswordFocusGained
 
     private void txtefnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtefnameActionPerformed
-
+        Assert.assertEquals(false,txtefname.getText().length()==0);
     }//GEN-LAST:event_txtefnameActionPerformed
     public void resetme(){
     txtefname.setText("");
@@ -265,33 +322,38 @@ public class NewAdminview extends javax.swing.JFrame {
     }//GEN-LAST:event_txtefnameFocusLost
 
     private void txtelnameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtelnameFocusLost
-    if(txtelname.getText().length()==0){
-        addPlaceholderstyle(txtelname);
-        txtelname.setText("LAST NAME");    
+        {   Assert.assertEquals(false,txtelname.getText().length()==0); 
         }    }//GEN-LAST:event_txtelnameFocusLost
 
     private void txtephoneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtephoneFocusLost
-if(txtephone.getText().length()==0){
-        addPlaceholderstyle(txtephone);
-        txtephone.setText("PHONE NO");    
+        {    Assert.assertEquals(false,txtephone.getText().length()==0);
+
         }    }//GEN-LAST:event_txtephoneFocusLost
 
     private void txteemailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txteemailFocusLost
-if(txteemail.getText().length()==0){
-        addPlaceholderstyle(txteemail);
-        txteemail.setText("E-MAIL ADDRESS");    
+        { Assert.assertEquals(false,txteemail.getText().length()==0);
         }    }//GEN-LAST:event_txteemailFocusLost
 
     private void txtepasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtepasswordFocusLost
-if(txtepassword.getText().length()==0){
-        addPlaceholderstyle(txtepassword);
-        txtepassword.setText("PASSWORD");    
+        {Assert.assertEquals(false,txtepassword.getText().length()==0);
         }    }//GEN-LAST:event_txtepasswordFocusLost
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     LoginView s=new LoginView();
             s.setVisible(true);
             this.hide();    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtelnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtelnameActionPerformed
+        Assert.assertEquals(false,txtelname.getText().length()==0);
+    }//GEN-LAST:event_txtelnameActionPerformed
+
+    private void txteemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txteemailActionPerformed
+       
+    }//GEN-LAST:event_txteemailActionPerformed
+
+    private void txtepasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtepasswordActionPerformed
+       
+    }//GEN-LAST:event_txtepasswordActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -307,6 +369,12 @@ if(txtepassword.getText().length()==0){
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField txteemail;
     private javax.swing.JTextField txtefname;
     private javax.swing.JTextField txtelname;
