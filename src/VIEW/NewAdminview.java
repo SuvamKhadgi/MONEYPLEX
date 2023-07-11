@@ -322,11 +322,11 @@ public class NewAdminview extends javax.swing.JFrame {
     }//GEN-LAST:event_txtefnameFocusLost
 
     private void txtelnameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtelnameFocusLost
-        {   Assert.assertEquals(false,txtelname.getText().length()==0); 
+        {   Assert.assertEquals(true,txtelname.getText().length()==0); 
         }    }//GEN-LAST:event_txtelnameFocusLost
 
     private void txtephoneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtephoneFocusLost
-        {    Assert.assertEquals(false,txtephone.getText().length()==0);
+        {    Assert.assertEquals(true,txtephone.getText().length()==0);
 
         }    }//GEN-LAST:event_txtephoneFocusLost
 
