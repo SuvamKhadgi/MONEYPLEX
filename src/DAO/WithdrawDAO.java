@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.DriverManager;
+import javax.swing.JOptionPane;
 
 public class WithdrawDAO {
     public boolean checkMyData(Withdrawmodel mymodel) {
@@ -84,8 +85,10 @@ public class WithdrawDAO {
                 statement.setString(2, mymodell.getId());
                 int rowsAffected = statement.executeUpdate();
                 if (rowsAffected > 0) {
+                    JOptionPane.showMessageDialog(null, "AMOUNT WITHDRAW SUCCESSFULL", "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
                     System.out.println("Account updated successfully");
                 } else {
+                    JOptionPane.showMessageDialog(null, "FAILED TO WITHDRAW", "FAILED", JOptionPane.INFORMATION_MESSAGE);
                     System.out.println("Failed to update account");
                 }
             }

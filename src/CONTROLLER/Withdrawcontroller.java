@@ -140,27 +140,32 @@ public class Withdrawcontroller {
         public void actionPerformed() {
             try {
                 mymodel = view.getMymodel();
-                if (checkMyData(mymodel)) {
-                    view.showMessage("Withdrawal successful!");
-//                    view.resetFields();
-                } else {
-                    view.showMessage("Insufficient balance or invalid account.");
-                }
+//                if (checkMyData(mymodel)) {
+//                    view.showMessage("Withdrawal successful!");
+////                    view.resetFields();
+//                } else {
+//                    view.showMessage("Insufficient balance or invalid account.");
+//                }
             } catch (Exception e1) {
                 e1.printStackTrace();
             }
         }
     }
-
-    public boolean checkMyData(Withdrawmodel mymodel) {
+public void checkMyData(Withdrawmodel mymodel){
+//    public boolean checkMyData(Withdrawmodel mymodel) {
         withdrawDAO.chkdata(mymodel);
-        double availableAmount = Double.parseDouble(mymodel.getAva_amt());
-        double withdrawalAmount = Double.parseDouble(mymodel.getWith_amt());
+        withdrawDAO.checkMyData(mymodel);
+//        double availableAmount = Double.parseDouble(mymodel.getAva_amt());
+//        double withdrawalAmount = Double.parseDouble(mymodel.getWith_amt());
+//        
+     int availableAmount = Integer.parseInt(mymodel.getAva_amt());
+
+        int withdrawalAmount = Integer.parseInt(mymodel.getWith_amt());
         if (availableAmount >= withdrawalAmount) {
             withdrawDAO.checkdataa(mymodel);
-            return true;
+//            return true;
         } else {
-            return false;
+//            return false;
         }
     }
 

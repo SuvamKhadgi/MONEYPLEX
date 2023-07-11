@@ -341,10 +341,10 @@ Withdrawmodel model;
     }//GEN-LAST:event_btntransactionActionPerformed
     public void resetme(){
         txtAccN.setText("");
-        txtwithdrawA.setText(" ");
-        txtcustomerN.setText(" ");
-        txtavailableA.setText(" ");
-        txtphoneN.setText(" ");
+        txtwithdrawA.setText("");
+        txtcustomerN.setText("");
+        txtavailableA.setText("");
+        txtphoneN.setText("");
     }
     private void btnhomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhomeActionPerformed
         this.setVisible(false);

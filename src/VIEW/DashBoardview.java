@@ -1,6 +1,7 @@
 package VIEW;
 
 import MODEL.DataConnection;
+import java.awt.BorderLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
@@ -10,6 +11,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javaswingdev.chart.ModelPieChart;
 import javaswingdev.chart.PieChart;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.CategoryAxis;
+import org.jfree.chart.axis.CategoryLabelPositions;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 public class DashBoardview extends javax.swing.JFrame {
     PreparedStatement pst = null;
@@ -21,6 +31,7 @@ public class DashBoardview extends javax.swing.JFrame {
         ImageIcon i = new ImageIcon(img2);
         jLabel1.setIcon(i);
         piecht();
+        bargrph();
     }
 
     @SuppressWarnings("unchecked")
@@ -35,6 +46,7 @@ public class DashBoardview extends javax.swing.JFrame {
         btnloan = new javax.swing.JButton();
         btnreport = new javax.swing.JButton();
         pieChart1 = new javaswingdev.chart.PieChart();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -115,7 +127,13 @@ public class DashBoardview extends javax.swing.JFrame {
         getContentPane().add(btnreport, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 130, 150, 50));
 
         pieChart1.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        getContentPane().add(pieChart1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 480, 420));
+        getContentPane().add(pieChart1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 490, 460));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setFocusable(false);
+        jPanel1.setOpaque(false);
+        jPanel1.setLayout(new java.awt.BorderLayout());
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, 620, 460));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 640));
 
         pack();
@@ -152,6 +170,66 @@ public void piecht(){
     catch(Exception e){
         
     }
+}
+ 
+public void bargrph() {
+    try {
+        Connection conn = DataConnection.dbconnect();
+        String sql = "SELECT deposit_amount, withdrew_amount, deposit_date, withdrew_date FROM statements";
+        PreparedStatement pst = conn.prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+        
+        DefaultCategoryDataset bardata = new DefaultCategoryDataset();
+         int totalDepositAmount = 0;
+        int totalWithdrawAmount = 0;
+        while (rs.next()) {
+            int depositAmount = rs.getInt("deposit_amount");
+            int withdrawAmount = rs.getInt("withdrew_amount");
+            String depositDate = rs.getString("deposit_date");
+            String withdrawDate = rs.getString("withdrew_date");
+             if (depositDate != null) {
+                totalDepositAmount += depositAmount;
+                bardata.setValue(totalDepositAmount, "Total Deposit Amount", depositDate);
+            }
+            
+            if (withdrawDate != null) {
+                totalWithdrawAmount += withdrawAmount;
+                bardata.setValue(totalWithdrawAmount, "Total Withdraw Amount", withdrawDate);
+            }
+        }
+        JFreeChart barChart = ChartFactory.createBarChart(
+            "TRANSACTIONS", "Date", "Amount", bardata,
+            PlotOrientation.VERTICAL, true, true, false
+        );
+        
+        // Customize the appearance of the bar chart
+        CategoryPlot barchart = barChart.getCategoryPlot();
+        
+        // Set series paint for each dataset series (Deposit Amount and Withdraw Amount)
+        BarRenderer renderer = (BarRenderer) barchart.getRenderer();
+        renderer.setSeriesPaint(0, Color.BLUE); // Deposit Amount - Blue
+        renderer.setSeriesPaint(1, Color.RED);  // Withdraw Amount - Red
+        
+        barchart.setRangeGridlinePaint(Color.RED);
+        
+        // Rotate the category labels to avoid overlapping
+        CategoryAxis domainAxis = barchart.getDomainAxis();
+        domainAxis.setCategoryLabelPositions(CategoryLabelPositions.UP_45);
+        
+        // Create the chart panel and display it
+        ChartPanel barpanel = new ChartPanel(barChart);
+        
+        jPanel1.removeAll();
+        jPanel1.add(barpanel, BorderLayout.CENTER);
+        jPanel1.validate();
+        
+        // Close database resources
+        rs.close();
+        pst.close();
+        conn.close();    } catch (Exception e) {
+        e.printStackTrace(); // Or handle the exception appropriately
+    }
+
 }
     private void btntransactionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntransactionActionPerformed
         this.setVisible(false);
@@ -211,6 +289,7 @@ public void piecht(){
     private javax.swing.JButton btntransachistory;
     private javax.swing.JButton btntransaction;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javaswingdev.chart.PieChart pieChart1;
     // End of variables declaration//GEN-END:variables
 }
