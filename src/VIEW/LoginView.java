@@ -31,9 +31,11 @@ public class LoginView extends javax.swing.JFrame {
         txtterms_conditions = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
         txtprivacy_policy = new javax.swing.JCheckBox();
+        btnnewadm1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         btnlogin = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jTextArea = new javax.swing.JScrollPane();
@@ -60,7 +62,7 @@ public class LoginView extends javax.swing.JFrame {
                 btnnewadmActionPerformed(evt);
             }
         });
-        getContentPane().add(btnnewadm, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, 81, -1));
+        getContentPane().add(btnnewadm, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 400, 80, 20));
 
         txtusername.setBackground(new java.awt.Color(40, 40, 38));
         txtusername.setForeground(new java.awt.Color(255, 255, 255));
@@ -91,7 +93,7 @@ public class LoginView extends javax.swing.JFrame {
                 txtterms_conditionsActionPerformed(evt);
             }
         });
-        getContentPane().add(txtterms_conditions, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, -1, -1));
+        getContentPane().add(txtterms_conditions, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, -1, -1));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, 160, 150));
 
         txtprivacy_policy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -101,7 +103,22 @@ public class LoginView extends javax.swing.JFrame {
                 txtprivacy_policyActionPerformed(evt);
             }
         });
-        getContentPane().add(txtprivacy_policy, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 161, -1));
+        getContentPane().add(txtprivacy_policy, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 161, -1));
+
+        btnnewadm1.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        btnnewadm1.setText("CLICK HERE");
+        btnnewadm1.setBorder(null);
+        btnnewadm1.setBorderPainted(false);
+        btnnewadm1.setContentAreaFilled(false);
+        btnnewadm1.setFocusCycleRoot(true);
+        btnnewadm1.setFocusPainted(false);
+        btnnewadm1.setFocusable(false);
+        btnnewadm1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnnewadm1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnnewadm1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, 90, 20));
 
         jLabel3.setFont(new java.awt.Font("Comic Sans MS", 1, 15)); // NOI18N
         jLabel3.setText("USERNAME");
@@ -112,10 +129,16 @@ public class LoginView extends javax.swing.JFrame {
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, -1, 30));
 
         jLabel6.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
-        jLabel6.setText("NEW ACCOUNT?");
+        jLabel6.setText("FORGOT PASSWORD?");
         jLabel6.setToolTipText("");
         jLabel6.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, -1, 30));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, -1, 30));
+
+        jLabel7.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        jLabel7.setText("NEW ACCOUNT?");
+        jLabel7.setToolTipText("");
+        jLabel7.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, -1, 30));
 
         btnlogin.setBackground(new java.awt.Color(22, 64, 96));
         btnlogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -233,6 +256,12 @@ public class LoginView extends javax.swing.JFrame {
                 }
     }//GEN-LAST:event_txtterms_conditionsActionPerformed
 
+    private void btnnewadm1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnewadm1ActionPerformed
+        RecoveryAccountview s=new RecoveryAccountview();
+            s.setVisible(true);
+            this.hide();// TODO add your handling code here:
+    }//GEN-LAST:event_btnnewadm1ActionPerformed
+
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -260,11 +289,13 @@ public class LoginView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnlogin;
     private javax.swing.JButton btnnewadm;
+    private javax.swing.JButton btnnewadm1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jTextArea;
     private javax.swing.JTextArea msgbox;
