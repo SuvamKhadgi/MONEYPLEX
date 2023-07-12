@@ -14,13 +14,15 @@ public class NewAdminDAO {
 
         try {
             conn = DataConnection.dbconnect();
-            String sql = "INSERT INTO e_info(emp_fname, emp_lname, emp_phone, emp_email, emp_password) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO e_info(emp_fname, emp_lname, emp_phone, secu_que,que_ans, emp_password) VALUES (?, ?, ?,?, ?, ?)";
             pst = conn.prepareStatement(sql);
             pst.setString(1, mymodel1.getFname());
             pst.setString(2, mymodel1.getLname());
             pst.setString(3, mymodel1.getPhone());
-            pst.setString(4, mymodel1.getEmail());
-            pst.setString(5, mymodel1.getPassword());
+            pst.setString(4, mymodel1.getQuestion());
+             pst.setString(5, mymodel1.getAnswer());
+              pst.setString(6, mymodel1.getPassword());
+            
             pst.executeUpdate();
             System.out.println("Data inserted");
             return true;

@@ -110,7 +110,7 @@ public class NewAdmincontroller {
                     myview1.addLoginListner(this);
                 } else {
                     myview1.showMessage("PLEASE ENTER CORRECT DETAILS");
-                     myview1.validation();
+//                     myview1.validation();
                 }
             } catch (Exception e1) {
                 e1.printStackTrace();

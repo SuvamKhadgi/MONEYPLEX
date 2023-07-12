@@ -1,23 +1,12 @@
 package MODEL;
 
 public class NewAdminmodel {
+int id;
+     String phone,fname,lname,password,question,answer;
 
-    public NewAdminmodel( String phone, String fname, String lname, String email, String password) {
-        this.id = id;
-        this.phone = phone;
-        this.fname = fname;
-        this.lname = lname;
-        this.email = email;
-        this.password = password;
-    }
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+ 
 
     public String getPhone() {
         return phone;
@@ -43,13 +32,6 @@ public class NewAdminmodel {
         this.lname = lname;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getPassword() {
         return password;
@@ -58,7 +40,32 @@ public class NewAdminmodel {
     public void setPassword(String password) {
         this.password = password;
     }
-int id;
-     String phone,fname,lname,email,password;
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
+
+    public NewAdminmodel( String phone, String fname, String lname, String question, String answer, String password) {
+      
+        this.phone = phone;
+        this.fname = fname;
+        this.lname = lname;
+     
+        this.password = password;
+        this.question = question;
+        this.answer = answer;
+    }
 
 }
