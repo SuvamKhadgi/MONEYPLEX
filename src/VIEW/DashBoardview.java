@@ -57,6 +57,7 @@ public class DashBoardview extends javax.swing.JFrame {
         btnhome.setBackground(new java.awt.Color(0, 255, 255));
         btnhome.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         btnhome.setText("DASHBOARD");
+        btnhome.setBorder(null);
         btnhome.setBorderPainted(false);
         btnhome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

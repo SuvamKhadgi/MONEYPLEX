@@ -141,7 +141,7 @@ String Account;
         });
         getContentPane().add(btnreport, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 130, 150, 50));
 
-        jPanel2.setBackground(new java.awt.Color(153, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(0, 204, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -151,7 +151,7 @@ String Account;
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 1080, 70));
 
-        jPanel3.setBackground(new java.awt.Color(153, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(0, 204, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -205,7 +205,7 @@ String Account;
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 570, 290));
 
-        jPanel4.setBackground(new java.awt.Color(153, 255, 255));
+        jPanel4.setBackground(new java.awt.Color(0, 204, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -248,11 +248,11 @@ String Account;
 
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 410, 500, 150));
 
-        jPanel6.setBackground(new java.awt.Color(153, 255, 255));
+        jPanel6.setBackground(new java.awt.Color(0, 204, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnloancalculator.setBackground(new java.awt.Color(102, 204, 255));
+        btnloancalculator.setBackground(new java.awt.Color(102, 255, 255));
         btnloancalculator.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         btnloancalculator.setText("CALCULATE LOAN");
         btnloancalculator.addActionListener(new java.awt.event.ActionListener() {
@@ -262,7 +262,7 @@ String Account;
         });
         jPanel6.add(btnloancalculator, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 20, 170, 30));
 
-        btnreset.setBackground(new java.awt.Color(204, 204, 204));
+        btnreset.setBackground(new java.awt.Color(102, 255, 255));
         btnreset.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         btnreset.setText("Reset");
         btnreset.addActionListener(new java.awt.event.ActionListener() {
@@ -297,7 +297,10 @@ this.setVisible(false);
     }//GEN-LAST:event_btntransactionActionPerformed
 
     private void btnhomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhomeActionPerformed
+this.setVisible(false);
+        DashBoardview ca= new DashBoardview();
 
+       ca.setVisible(true);
     }//GEN-LAST:event_btnhomeActionPerformed
 
     private void btncustomermgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncustomermgActionPerformed
