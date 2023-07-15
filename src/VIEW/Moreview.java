@@ -185,6 +185,7 @@ public class Moreview extends javax.swing.JFrame {
 
         jLabel1.setText("ggg");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 640));
+        jLabel1.getAccessibleContext().setAccessibleName("");
 
         pack();
         setLocationRelativeTo(null);
@@ -213,7 +214,9 @@ public class Moreview extends javax.swing.JFrame {
     }//GEN-LAST:event_btnabtusActionPerformed
 
     private void btncrnconvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncrnconvActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        Currencyconvertview ca= new Currencyconvertview();
+        ca.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_btncrnconvActionPerformed
 
     private void btndltaccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndltaccActionPerformed
@@ -234,7 +237,7 @@ public class Moreview extends javax.swing.JFrame {
 
     private void btnloanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloanActionPerformed
         this.setVisible(false);
-        Interestview ca= new Interestview();
+        Loanview ca= new Loanview();
         ca.setVisible(true);
     }//GEN-LAST:event_btnloanActionPerformed
 

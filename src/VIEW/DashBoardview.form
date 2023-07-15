@@ -33,7 +33,7 @@
           <Color blue="ff" green="ff" red="0" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Comic Sans MS" size="18" style="1"/>
+          <Font name="Comic Sans MS" size="17" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="DASHBOARD"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -56,7 +56,7 @@
           <Color blue="ae" green="90" red="2a" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Comic Sans MS" size="18" style="1"/>
+          <Font name="Comic Sans MS" size="17" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="CUSTOMERS"/>
       </Properties>
@@ -75,7 +75,7 @@
           <Color blue="ae" green="90" red="2a" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Comic Sans MS" size="18" style="1"/>
+          <Font name="Comic Sans MS" size="17" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="TRANSACTION"/>
         <Property name="horizontalTextPosition" type="int" value="10"/>
@@ -95,7 +95,7 @@
           <Color blue="ae" green="90" red="2a" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Comic Sans MS" size="18" style="1"/>
+          <Font name="Comic Sans MS" size="17" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="STATEMENT"/>
       </Properties>
@@ -114,7 +114,7 @@
           <Color blue="ae" green="90" red="2a" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Comic Sans MS" size="18" style="1"/>
+          <Font name="Comic Sans MS" size="17" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="INTEREST"/>
       </Properties>
@@ -133,7 +133,7 @@
           <Color blue="ae" green="90" red="2a" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Comic Sans MS" size="18" style="1"/>
+          <Font name="Comic Sans MS" size="17" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="LOAN"/>
       </Properties>
@@ -152,7 +152,7 @@
           <Color blue="ae" green="90" red="2a" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Comic Sans MS" size="18" style="1"/>
+          <Font name="Comic Sans MS" size="17" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="MORE..."/>
       </Properties>

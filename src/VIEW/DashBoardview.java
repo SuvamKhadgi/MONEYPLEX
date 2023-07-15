@@ -25,6 +25,7 @@ public class DashBoardview extends javax.swing.JFrame {
     PreparedStatement pst = null;
     public DashBoardview() {
         initComponents();
+        setExtendedState(NORMAL);
         ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Moneyplex Bank.png")));
         Image img1 = myimage.getImage();
         Image img2 = img1.getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH);
@@ -55,7 +56,7 @@ public class DashBoardview extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnhome.setBackground(new java.awt.Color(0, 255, 255));
-        btnhome.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        btnhome.setFont(new java.awt.Font("Comic Sans MS", 1, 17)); // NOI18N
         btnhome.setText("DASHBOARD");
         btnhome.setBorder(null);
         btnhome.setBorderPainted(false);
@@ -67,7 +68,7 @@ public class DashBoardview extends javax.swing.JFrame {
         getContentPane().add(btnhome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 150, 50));
 
         btncustomermg.setBackground(new java.awt.Color(42, 144, 174));
-        btncustomermg.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        btncustomermg.setFont(new java.awt.Font("Comic Sans MS", 1, 17)); // NOI18N
         btncustomermg.setText("CUSTOMERS");
         btncustomermg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,7 +78,7 @@ public class DashBoardview extends javax.swing.JFrame {
         getContentPane().add(btncustomermg, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 150, 50));
 
         btntransaction.setBackground(new java.awt.Color(42, 144, 174));
-        btntransaction.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        btntransaction.setFont(new java.awt.Font("Comic Sans MS", 1, 17)); // NOI18N
         btntransaction.setText("TRANSACTION");
         btntransaction.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         btntransaction.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +89,7 @@ public class DashBoardview extends javax.swing.JFrame {
         getContentPane().add(btntransaction, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 180, 50));
 
         btntransachistory.setBackground(new java.awt.Color(42, 144, 174));
-        btntransachistory.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        btntransachistory.setFont(new java.awt.Font("Comic Sans MS", 1, 17)); // NOI18N
         btntransachistory.setText("STATEMENT");
         btntransachistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,7 +99,7 @@ public class DashBoardview extends javax.swing.JFrame {
         getContentPane().add(btntransachistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, 150, 50));
 
         btnintrest.setBackground(new java.awt.Color(42, 144, 174));
-        btnintrest.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        btnintrest.setFont(new java.awt.Font("Comic Sans MS", 1, 17)); // NOI18N
         btnintrest.setText("INTEREST");
         btnintrest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +109,7 @@ public class DashBoardview extends javax.swing.JFrame {
         getContentPane().add(btnintrest, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 130, 150, 50));
 
         btnloan.setBackground(new java.awt.Color(42, 144, 174));
-        btnloan.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        btnloan.setFont(new java.awt.Font("Comic Sans MS", 1, 17)); // NOI18N
         btnloan.setText("LOAN");
         btnloan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,7 +119,7 @@ public class DashBoardview extends javax.swing.JFrame {
         getContentPane().add(btnloan, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 130, 150, 50));
 
         btnreport.setBackground(new java.awt.Color(42, 144, 174));
-        btnreport.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        btnreport.setFont(new java.awt.Font("Comic Sans MS", 1, 17)); // NOI18N
         btnreport.setText("MORE...");
         btnreport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

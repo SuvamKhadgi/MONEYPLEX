@@ -57,7 +57,7 @@
     <Component class="javax.swing.JTextField" name="txtusername">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="26" green="28" red="28" type="rgb"/>
+          <Color blue="e4" green="d6" red="64" type="rgb"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -74,14 +74,14 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="470" y="240" width="120" height="23"/>
+          <AbsoluteConstraints x="460" y="240" width="120" height="23"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JPasswordField" name="txtpassword">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="26" green="28" red="28" type="rgb"/>
+          <Color blue="e4" green="d6" red="64" type="rgb"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -98,7 +98,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="470" y="280" width="120" height="25"/>
+          <AbsoluteConstraints x="460" y="280" width="120" height="20"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -244,14 +244,14 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="410" y="440" width="110" height="13"/>
+          <AbsoluteConstraints x="400" y="433" width="110" height="20"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/VIEW/LOGIN.png"/>
+          <Image iconType="3" name="/VIEW/loginn.png"/>
         </Property>
       </Properties>
       <Constraints>

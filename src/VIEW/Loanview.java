@@ -299,19 +299,17 @@ this.setVisible(false);
     private void btnhomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhomeActionPerformed
 this.setVisible(false);
         DashBoardview ca= new DashBoardview();
-
        ca.setVisible(true);
     }//GEN-LAST:event_btnhomeActionPerformed
 
     private void btncustomermgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncustomermgActionPerformed
-this.setVisible(false);
+        this.setVisible(false);
         CreateAccountview ca= new CreateAccountview();
-
        ca.setVisible(true);
     }//GEN-LAST:event_btncustomermgActionPerformed
 
     private void btnintrestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnintrestActionPerformed
-this.setVisible(false);
+        this.setVisible(false);
         Interestview ca= new Interestview();
         ca.setVisible(true);         // TODO add your handling code here:
     }//GEN-LAST:event_btnintrestActionPerformed
@@ -333,7 +331,9 @@ this.setVisible(false);
     }//GEN-LAST:event_txtoverdraftActionPerformed
 
     private void btnexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexitActionPerformed
-        System.exit(0);
+        this.setVisible(false);
+        LoginView ca= new LoginView();
+        ca.setVisible(true);   
     }//GEN-LAST:event_btnexitActionPerformed
 
     private void btnloancalculatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloancalculatorActionPerformed

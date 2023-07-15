@@ -64,7 +64,7 @@ public class LoginView extends javax.swing.JFrame {
         });
         getContentPane().add(btnnewadm, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 400, 80, 20));
 
-        txtusername.setBackground(new java.awt.Color(40, 40, 38));
+        txtusername.setBackground(new java.awt.Color(100, 214, 228));
         txtusername.setForeground(new java.awt.Color(255, 255, 255));
         txtusername.setBorder(null);
         txtusername.addActionListener(new java.awt.event.ActionListener() {
@@ -72,10 +72,10 @@ public class LoginView extends javax.swing.JFrame {
                 txtusernameActionPerformed(evt);
             }
         });
-        getContentPane().add(txtusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 120, 23));
+        getContentPane().add(txtusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, 120, 23));
         txtusername.getAccessibleContext().setAccessibleName("");
 
-        txtpassword.setBackground(new java.awt.Color(40, 40, 38));
+        txtpassword.setBackground(new java.awt.Color(100, 214, 228));
         txtpassword.setForeground(new java.awt.Color(255, 255, 255));
         txtpassword.setBorder(null);
         txtpassword.setSelectionColor(new java.awt.Color(255, 255, 255));
@@ -84,7 +84,7 @@ public class LoginView extends javax.swing.JFrame {
                 txtpasswordActionPerformed(evt);
             }
         });
-        getContentPane().add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 120, 25));
+        getContentPane().add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 280, 120, 20));
 
         txtterms_conditions.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtterms_conditions.setText("TERMS AND CONDITIONS");
@@ -152,9 +152,9 @@ public class LoginView extends javax.swing.JFrame {
                 btnloginActionPerformed(evt);
             }
         });
-        getContentPane().add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 110, 13));
+        getContentPane().add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 433, 110, 20));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VIEW/LOGIN.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VIEW/loginn.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 550));
 
         msgbox.setColumns(20);
