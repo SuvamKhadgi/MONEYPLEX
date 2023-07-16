@@ -115,7 +115,7 @@ public class CreateAccountcontroller {
         try {
             CreateAccountmodel mymodel = view.getMymodel();
             if (checkMyData(mymodel)) {
-                view.showMessage("Registered Successfully");
+//                view.showMessage("Registered Successfully");
             } else {
                 view.showMessage("Invalid Details");
             }

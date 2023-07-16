@@ -65,7 +65,6 @@ public class LoginView extends javax.swing.JFrame {
         getContentPane().add(btnnewadm, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 400, 80, 20));
 
         txtusername.setBackground(new java.awt.Color(100, 214, 228));
-        txtusername.setForeground(new java.awt.Color(255, 255, 255));
         txtusername.setBorder(null);
         txtusername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,7 +75,6 @@ public class LoginView extends javax.swing.JFrame {
         txtusername.getAccessibleContext().setAccessibleName("");
 
         txtpassword.setBackground(new java.awt.Color(100, 214, 228));
-        txtpassword.setForeground(new java.awt.Color(255, 255, 255));
         txtpassword.setBorder(null);
         txtpassword.setSelectionColor(new java.awt.Color(255, 255, 255));
         txtpassword.addActionListener(new java.awt.event.ActionListener() {
