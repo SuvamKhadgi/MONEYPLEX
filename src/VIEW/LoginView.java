@@ -18,8 +18,6 @@ public class LoginView extends javax.swing.JFrame {
         Image img2=img1.getScaledInstance(jLabel1.getWidth(),jLabel1.getHeight(),Image.SCALE_SMOOTH);
         ImageIcon i = new ImageIcon(img2);
         jLabel1.setIcon(i);
-        msgbox.setEditable(false);
-        msgbox2.setEnabled(false);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -159,13 +157,13 @@ public class LoginView extends javax.swing.JFrame {
         msgbox.setRows(5);
         jTextArea.setViewportView(msgbox);
 
-        getContentPane().add(jTextArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 230, -1, -1));
+        getContentPane().add(jTextArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, -1, -1));
 
         msgbox2.setColumns(20);
         msgbox2.setRows(5);
         jScrollPane1.setViewportView(msgbox2);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, -1, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 450, -1, -1));
 
         pack();
         setLocationRelativeTo(null);

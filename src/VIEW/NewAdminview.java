@@ -15,11 +15,6 @@ public class NewAdminview extends javax.swing.JFrame {
     NewAdminmodel model1;
     public NewAdminview() {
         initComponents();
-//        ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("back ground.jpg")));
-//        Image img1=  myimage.getImage();
-//        Image img2=img1.getScaledInstance(jLabel1.getWidth(),jLabel1.getHeight(),Image.SCALE_SMOOTH);
-//        ImageIcon i = new ImageIcon(img2);
-//        jLabel1.setIcon(i);
         addPlaceholderstyle(txtefname);
         addPlaceholderstyle(txtelname);
         addPlaceholderstyle(txtephone);
